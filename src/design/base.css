@@ -269,7 +269,11 @@ main {
   color: #e5e7eb;
   padding: 16px;
   margin: 0 0 18px;
+  font-family: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
   font-size: 0.96rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .question-image {

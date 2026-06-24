@@ -17,3 +17,10 @@
 - 整理 `package.json` 依赖分类后重新执行 `npm run build`，构建继续通过。
 - 在 `WebReview` 目录初始化 Git 仓库，分支为 `master`。
 - 清理一次残留的 0 字节 `.git/index.lock` 后完成初始提交。
+
+## 2026-06-24 Code Block Display Fix
+
+- 根据截图确认 Verilog 代码块中的 `~` 符号显示偏上。
+- 原因：代码块继承页面中文 UI 字体，没有指定等宽代码字体。
+- 修复：为 `.code-block` 增加 Cascadia Code / Consolas 等宽字体栈，并加入更稳定的行高和窄屏换行规则。
+- 重新执行 `npm run build`，构建通过。
