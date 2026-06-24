@@ -7,12 +7,26 @@
     "contentType": "text",
     "prompt": "二进制数 101101 转换为十进制是多少？",
     "options": [
-      { "id": "A", "label": "41" },
-      { "id": "B", "label": "45" },
-      { "id": "C", "label": "47" },
-      { "id": "D", "label": "53" }
+      {
+        "id": "A",
+        "label": "41"
+      },
+      {
+        "id": "B",
+        "label": "45"
+      },
+      {
+        "id": "C",
+        "label": "47"
+      },
+      {
+        "id": "D",
+        "label": "53"
+      }
     ],
-    "correctOptionIds": ["B"],
+    "correctOptionIds": [
+      "B"
+    ],
     "explanation": "101101₂ = 32 + 8 + 4 + 1 = 45。"
   },
   {
@@ -23,12 +37,28 @@
     "contentType": "text",
     "prompt": "关于布尔代数恒等式，哪些说法是正确的？",
     "options": [
-      { "id": "A", "label": "$A + A = A$" },
-      { "id": "B", "label": "$A \\cdot A = 0$" },
-      { "id": "C", "label": "$A + \\overline{A} = 1$" },
-      { "id": "D", "label": "$A \\cdot 1 = A$" }
+      {
+        "id": "A",
+        "label": "$A + A = A$"
+      },
+      {
+        "id": "B",
+        "label": "$A \\cdot A = 0$"
+      },
+      {
+        "id": "C",
+        "label": "$A + \\overline{A} = 1$"
+      },
+      {
+        "id": "D",
+        "label": "$A \\cdot 1 = A$"
+      }
     ],
-    "correctOptionIds": ["A", "C", "D"],
+    "correctOptionIds": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "幂等律给出 $A + A = A$ 和 $A \\cdot A = A$；互补律给出 $A + \\overline{A} = 1$；恒等律给出 $A \\cdot 1 = A$。"
   },
   {
@@ -39,12 +69,26 @@
     "contentType": "text",
     "prompt": "布尔表达式 $F = A\\overline{B} + \\overline{A}B$ 最接近哪个逻辑门？",
     "options": [
-      { "id": "A", "label": "AND" },
-      { "id": "B", "label": "OR" },
-      { "id": "C", "label": "XOR" },
-      { "id": "D", "label": "XNOR" }
+      {
+        "id": "A",
+        "label": "AND"
+      },
+      {
+        "id": "B",
+        "label": "OR"
+      },
+      {
+        "id": "C",
+        "label": "XOR"
+      },
+      {
+        "id": "D",
+        "label": "XNOR"
+      }
     ],
-    "correctOptionIds": ["C"],
+    "correctOptionIds": [
+      "C"
+    ],
     "explanation": "当 $A$ 与 $B$ 不相同时，$F = 1$；当二者相同时，$F = 0$，这正是 XOR。"
   },
   {
@@ -56,12 +100,26 @@
     "prompt": "下面 MIPS 指令片段中，第二条指令主要依赖第一条指令的哪个结果？",
     "code": "lw  $t0, 0($t1)\nadd $t2, $t0, $t3",
     "options": [
-      { "id": "A", "label": "第一条指令从内存读出的 $t0$ 数据" },
-      { "id": "B", "label": "第一条指令写入的程序计数器 PC" },
-      { "id": "C", "label": "第一条指令使用的立即数 0" },
-      { "id": "D", "label": "第一条指令的操作码 opcode" }
+      {
+        "id": "A",
+        "label": "第一条指令从内存读出的 $t0$ 数据"
+      },
+      {
+        "id": "B",
+        "label": "第一条指令写入的程序计数器 PC"
+      },
+      {
+        "id": "C",
+        "label": "第一条指令使用的立即数 0"
+      },
+      {
+        "id": "D",
+        "label": "第一条指令的操作码 opcode"
+      }
     ],
-    "correctOptionIds": ["A"],
+    "correctOptionIds": [
+      "A"
+    ],
     "explanation": "$add$ 需要读取 $t0$，而 $t0$ 正是前一条 $lw$ 从内存载入的结果；这对应数据相关。"
   },
   {
@@ -76,12 +134,27 @@
       "alt": "2 variable Karnaugh map with ones at cells 01 and 11"
     },
     "options": [
-      { "id": "A", "label": "m0" },
-      { "id": "B", "label": "m1" },
-      { "id": "C", "label": "m2" },
-      { "id": "D", "label": "m3" }
+      {
+        "id": "A",
+        "label": "m0"
+      },
+      {
+        "id": "B",
+        "label": "m1"
+      },
+      {
+        "id": "C",
+        "label": "m2"
+      },
+      {
+        "id": "D",
+        "label": "m3"
+      }
     ],
-    "correctOptionIds": ["B", "D"],
+    "correctOptionIds": [
+      "B",
+      "D"
+    ],
     "explanation": "图中为 1 的单元格对应 AB = 01 和 AB = 11，也就是 m1 与 m3。"
   },
   {
@@ -92,12 +165,1958 @@
     "contentType": "text",
     "prompt": "D 触发器在有效时钟沿之后，Q 的值会变成什么？",
     "options": [
-      { "id": "A", "label": "保持原值" },
-      { "id": "B", "label": "变为 D 的当前采样值" },
-      { "id": "C", "label": "一定变为 0" },
-      { "id": "D", "label": "一定变为 1" }
+      {
+        "id": "A",
+        "label": "保持原值"
+      },
+      {
+        "id": "B",
+        "label": "变为 D 的当前采样值"
+      },
+      {
+        "id": "C",
+        "label": "一定变为 0"
+      },
+      {
+        "id": "D",
+        "label": "一定变为 1"
+      }
     ],
-    "correctOptionIds": ["B"],
+    "correctOptionIds": [
+      "B"
+    ],
     "explanation": "D 触发器在有效时钟沿采样 D，并在传播延迟后将该值输出到 Q。"
+  },
+  {
+    "id": "w23-final-b-q01",
+    "topic": "Number Representation",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Convert this unsigned binary number to decimal: 1101110",
+    "options": [
+      {
+        "id": "A",
+        "label": "162"
+      },
+      {
+        "id": "B",
+        "label": "120"
+      },
+      {
+        "id": "C",
+        "label": "110"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: 110\nSource: official answer key\nOrigin: w23-final-b, question 1, PDF page 2"
+  },
+  {
+    "id": "w23-final-b-q02",
+    "topic": "Number Representation",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "image",
+    "prompt": "Convert this binary number to hexadecimal: 0000100010100111",
+    "image": {
+      "src": "/question-assets/past-exam/2023_final_b_q02_options.png",
+      "alt": "Source image for w23-final-b question 2"
+    },
+    "options": [
+      {
+        "id": "A",
+        "label": "0897"
+      },
+      {
+        "id": "B",
+        "label": "08A7"
+      },
+      {
+        "id": "C",
+        "label": "19B7"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: 08A7\nSource: official answer key\nOrigin: w23-final-b, question 2, PDF page 2\nNote: Option c is confirmed as \"19B7\"."
+  },
+  {
+    "id": "w23-final-b-q03",
+    "topic": "Number Representation",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Convert to hexadecimal: 01011100101100010110",
+    "options": [
+      {
+        "id": "A",
+        "label": "5CB16"
+      },
+      {
+        "id": "B",
+        "label": "B962C"
+      },
+      {
+        "id": "C",
+        "label": "DCB16"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: 5CB16\nSource: official answer key\nOrigin: w23-final-b, question 3, PDF page 2"
+  },
+  {
+    "id": "w23-final-b-q04",
+    "topic": "Number Representation",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Sign-extend the 4-bit two's complement number 1001 to 8-bit two's complement number:",
+    "options": [
+      {
+        "id": "A",
+        "label": "10001001"
+      },
+      {
+        "id": "B",
+        "label": "11111001"
+      },
+      {
+        "id": "C",
+        "label": "00001001"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: 11111001\nSource: official answer key\nOrigin: w23-final-b, question 4, PDF page 2"
+  },
+  {
+    "id": "w23-final-b-q05",
+    "topic": "Number Representation",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Consider the following 32-bit word: \\$7FFFFFFF. It is:",
+    "options": [
+      {
+        "id": "A",
+        "label": "The minimum 32-bit two's complement value."
+      },
+      {
+        "id": "B",
+        "label": "The minimum 32-bit unsigned value"
+      },
+      {
+        "id": "C",
+        "label": "The maximum 32-bit unsigned value."
+      },
+      {
+        "id": "D",
+        "label": "The maximum 32-bit two's complement value."
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Answer: The maximum 32-bit two's complement value.\nSource: official answer key\nOrigin: w23-final-b, question 5, PDF page 2"
+  },
+  {
+    "id": "w23-final-b-q06",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Given an FSM with 5 states, what is the minimum number of bits required to represent its current state in a circuit implementation?",
+    "options": [
+      {
+        "id": "A",
+        "label": "5"
+      },
+      {
+        "id": "B",
+        "label": "3"
+      },
+      {
+        "id": "C",
+        "label": "2"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: 3\nSource: official answer key\nOrigin: w23-final-b, question 6, PDF page 3"
+  },
+  {
+    "id": "w23-final-b-q07",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "You analyze a FSM and find several unreachable states. What should you do with them?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Remove them, simplifying the FSM and reducing circuit complexity."
+      },
+      {
+        "id": "B",
+        "label": "Implement them as separate circuits for potential future functionality."
+      },
+      {
+        "id": "C",
+        "label": "Leave them as they are, as they don't affect reachable states."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Remove them, simplifying the FSM and reducing circuit complexity.\nSource: official answer key\nOrigin: w23-final-b, question 7, PDF page 3"
+  },
+  {
+    "id": "w23-final-b-q08",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary advantage of using state diagrams to represent FSMs?",
+    "options": [
+      {
+        "id": "A",
+        "label": "They provide detailed circuit-level implementation specifics."
+      },
+      {
+        "id": "B",
+        "label": "They offer a clear and concise visual representation of behavior."
+      },
+      {
+        "id": "C",
+        "label": "They efficiently encode timing constraints for clock cycles and delays."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: They offer a clear and concise visual representation of behavior.\nSource: official answer key\nOrigin: w23-final-b, question 8, PDF page 3"
+  },
+  {
+    "id": "w23-final-b-q09",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "An ALU that can perform the set of operations: addition, subtraction, logical AND, and logical XOR, would require:",
+    "options": [
+      {
+        "id": "A",
+        "label": "2 control signals."
+      },
+      {
+        "id": "B",
+        "label": "3 control signals."
+      },
+      {
+        "id": "C",
+        "label": "4 control signals."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: 2 control signals.\nSource: official answer key\nOrigin: w23-final-b, question 9, PDF page 3"
+  },
+  {
+    "id": "w23-final-b-q10",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary function of a Lookup Table (LUT) in digital systems?",
+    "options": [
+      {
+        "id": "A",
+        "label": "To provide temporary storage for frequently accessed data."
+      },
+      {
+        "id": "B",
+        "label": "To efficiently perform pre-calculated data transformations."
+      },
+      {
+        "id": "C",
+        "label": "To control program execution flow via branching instructions."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: To efficiently perform pre-calculated data transformations.\nSource: official answer key\nOrigin: w23-final-b, question 10, PDF page 3"
+  },
+  {
+    "id": "w23-final-b-q11",
+    "topic": "Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "How many Memory locations does have a memory with 12 Address Lines?",
+    "options": [
+      {
+        "id": "A",
+        "label": "2048"
+      },
+      {
+        "id": "B",
+        "label": "256"
+      },
+      {
+        "id": "C",
+        "label": "1024"
+      },
+      {
+        "id": "D",
+        "label": "4096"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Answer: 4096\nSource: official answer key\nOrigin: w23-final-b, question 11, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q12",
+    "topic": "Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a sequential circuit, which type of memory is likely used to store the current time?",
+    "options": [
+      {
+        "id": "A",
+        "label": "RAM"
+      },
+      {
+        "id": "B",
+        "label": "ALU"
+      },
+      {
+        "id": "C",
+        "label": "ROM"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: RAM\nSource: official answer key\nOrigin: w23-final-b, question 12, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q13",
+    "topic": "GBz80 Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "The instruction \"LD BC, nn\" loads a 16-bit value into the register pair BC. How many bytes does this instruction occupy in memory?",
+    "options": [
+      {
+        "id": "A",
+        "label": "2 bytes"
+      },
+      {
+        "id": "B",
+        "label": "3 bytes"
+      },
+      {
+        "id": "C",
+        "label": "1 byte"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: 3 bytes\nSource: official answer key\nOrigin: w23-final-b, question 13, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q14",
+    "topic": "GBz80 Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In which scenario would you use \"JP HL\" instead of \"RET\"?",
+    "options": [
+      {
+        "id": "A",
+        "label": "To store the current program counter on the stack."
+      },
+      {
+        "id": "B",
+        "label": "To return from a function call."
+      },
+      {
+        "id": "C",
+        "label": "To unconditionally jump to a specific address in memory."
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: To unconditionally jump to a specific address in memory.\nSource: official answer key\nOrigin: w23-final-b, question 14, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q15",
+    "topic": "GBz80 Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "How are registers operands encoded within \"LD r,r\" instructions?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Using 3-bit codes in the opcode"
+      },
+      {
+        "id": "B",
+        "label": "Instructions implicitly use specific registers without encoding them."
+      },
+      {
+        "id": "C",
+        "label": "Using separate bytes following the opcode"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Using 3-bit codes in the opcode\nSource: official answer key\nOrigin: w23-final-b, question 15, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q16",
+    "topic": "GBz80 Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What happens to the zero flag after executing the instruction \"ADD HL,HL\"?",
+    "options": [
+      {
+        "id": "A",
+        "label": "It is always set to 0."
+      },
+      {
+        "id": "B",
+        "label": "It is set to 0 or 1 depending on the new value of HL."
+      },
+      {
+        "id": "C",
+        "label": "It is not affected by the instruction."
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: It is not affected by the instruction.\nSource: official answer key\nOrigin: w23-final-b, question 16, PDF page 4"
+  },
+  {
+    "id": "w23-final-b-q17",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In MIPS machine code, how many bits does an immediate value occupy in an I-type instruction?",
+    "options": [
+      {
+        "id": "A",
+        "label": "8 bits"
+      },
+      {
+        "id": "B",
+        "label": "32 bits"
+      },
+      {
+        "id": "C",
+        "label": "16 bits"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: 16 bits\nSource: official answer key\nOrigin: w23-final-b, question 17, PDF page 5"
+  },
+  {
+    "id": "w23-final-b-q18",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In MIPS assembly, what is the instruction to return from a function?",
+    "options": [
+      {
+        "id": "A",
+        "label": "JR \\$ra"
+      },
+      {
+        "id": "B",
+        "label": "LW \\$ra, 0(\\$sp)"
+      },
+      {
+        "id": "C",
+        "label": "JR \\$sp"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: JR \\$ra\nSource: official answer key\nOrigin: w23-final-b, question 18, PDF page 5"
+  },
+  {
+    "id": "w23-final-b-q19",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which of the following factors influences the clock cycle time in a multi-cycle MIPS microarchitecture?",
+    "options": [
+      {
+        "id": "A",
+        "label": "The number of assembly registers."
+      },
+      {
+        "id": "B",
+        "label": "The size of the memory."
+      },
+      {
+        "id": "C",
+        "label": "The propagation delay of logic gates"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: The propagation delay of logic gates\nSource: official answer key\nOrigin: w23-final-b, question 19, PDF page 5"
+  },
+  {
+    "id": "w23-final-b-q20",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In which stage of the instruction cycle does the instruction register (IR) receive its content?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Execute"
+      },
+      {
+        "id": "B",
+        "label": "Fetch"
+      },
+      {
+        "id": "C",
+        "label": "Decode"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Fetch\nSource: official answer key\nOrigin: w23-final-b, question 20, PDF page 5"
+  },
+  {
+    "id": "w23-final-b-q21",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the purpose of the Program Counter (PC)?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Fetch instructions from memory"
+      },
+      {
+        "id": "B",
+        "label": "Store temporary results"
+      },
+      {
+        "id": "C",
+        "label": "Perform arithmetic operations"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Fetch instructions from memory\nSource: official answer key\nOrigin: w23-final-b, question 21, PDF page 5"
+  },
+  {
+    "id": "w23-final-b-q22",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Assume register A contains value \\$00. After a \"DEC A\" instruction, A contains value:",
+    "options": [
+      {
+        "id": "A",
+        "label": "\\$7F"
+      },
+      {
+        "id": "B",
+        "label": "\\$F0"
+      },
+      {
+        "id": "C",
+        "label": "\\$FF"
+      },
+      {
+        "id": "D",
+        "label": "\\$0F"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: \\$FF\nSource: official answer key\nOrigin: w23-final-b, question 22, PDF page 6"
+  },
+  {
+    "id": "w23-final-b-q23",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which instruction directly affects the Program Counter?",
+    "options": [
+      {
+        "id": "A",
+        "label": "LD A, [HL]"
+      },
+      {
+        "id": "B",
+        "label": "PUSH HL"
+      },
+      {
+        "id": "C",
+        "label": "JR NZ, \\$20"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: JR NZ, \\$20\nSource: official answer key\nOrigin: w23-final-b, question 23, PDF page 6"
+  },
+  {
+    "id": "w23-final-b-q24",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary purpose of labels in GBz80 assembly?",
+    "options": [
+      {
+        "id": "A",
+        "label": "To improve code execution speed by reducing symbol lookups"
+      },
+      {
+        "id": "B",
+        "label": "To create references for code jumps and data access"
+      },
+      {
+        "id": "C",
+        "label": "To visually organize code blocks for readability"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: To create references for code jumps and data access\nSource: official answer key\nOrigin: w23-final-b, question 24, PDF page 6"
+  },
+  {
+    "id": "w23-final-b-q25",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which of the following statements accurately describes the relationship between labels and instructions in GBz80 assembly?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Labels are used to identify specific memory addresses for instructions, allowing for code jumps and branches."
+      },
+      {
+        "id": "B",
+        "label": "Labels are directly translated into machine code, providing instructions for the CPU to execute."
+      },
+      {
+        "id": "C",
+        "label": "Labels serve as placeholders for instructions, which are later inserted during the linking stage."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Labels are used to identify specific memory addresses for instructions, allowing for code jumps and branches.\nSource: official answer key\nOrigin: w23-final-b, question 25, PDF page 6"
+  },
+  {
+    "id": "w23-final-b-q26",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "On the GameBoy, Variables should be declared in:",
+    "options": [
+      {
+        "id": "A",
+        "label": "Video RAM"
+      },
+      {
+        "id": "B",
+        "label": "Work RAM"
+      },
+      {
+        "id": "C",
+        "label": "ROM"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Work RAM\nSource: official answer key\nOrigin: w23-final-b, question 26, PDF page 6"
+  },
+  {
+    "id": "w23-final-b-q27",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary benefit of using metaobjects instead of directly drawing individual objects to the screen?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Increased object visibility"
+      },
+      {
+        "id": "B",
+        "label": "Reduced CPU usage"
+      },
+      {
+        "id": "C",
+        "label": "Simplified object management"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: Simplified object management\nSource: official answer key\nOrigin: w23-final-b, question 27, PDF page 7"
+  },
+  {
+    "id": "w23-final-b-q28",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "How are instructions and data required, by hardware, to be organized in the final .gb file?",
+    "options": [
+      {
+        "id": "A",
+        "label": "They are interleaved throughout the file."
+      },
+      {
+        "id": "B",
+        "label": "Data is stored first, followed by instructions."
+      },
+      {
+        "id": "C",
+        "label": "Instructions are stored first, followed by data."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: They are interleaved throughout the file.\nSource: official answer key\nOrigin: w23-final-b, question 28, PDF page 7"
+  },
+  {
+    "id": "w23-final-b-q29",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "To repeats a section of code 10 times, which approach is the most efficient in terms of execution speed?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Using a conditional relative jump instruction and a loop counter"
+      },
+      {
+        "id": "B",
+        "label": "Calling a function 10 times recursively"
+      },
+      {
+        "id": "C",
+        "label": "Unrolling the code 10 times manually"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: Unrolling the code 10 times manually\nSource: official answer key\nOrigin: w23-final-b, question 29, PDF page 7"
+  },
+  {
+    "id": "w23-final-b-q30",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a typical GBZ80 assembly program, how does code size generally affect execution speed?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Smaller code is always slower."
+      },
+      {
+        "id": "B",
+        "label": "Smaller code is usually faster."
+      },
+      {
+        "id": "C",
+        "label": "Smaller code is always faster."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Smaller code is usually faster.\nSource: official answer key\nOrigin: w23-final-b, question 30, PDF page 7"
+  },
+  {
+    "id": "w23-final-b-q31",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Consider the following GBz80 code snippet. What are the values of registers A and B after its execution?",
+    "code": "XOR A\nLD B,A\nLD C,A\nLD HL,$0101\nINC C\nINC BC\nADD HL,BC\nADD HL,BC\nLD B,L\nADD H",
+    "options": [
+      {
+        "id": "A",
+        "label": "A==02, B==04"
+      },
+      {
+        "id": "B",
+        "label": "A==01, B==04"
+      },
+      {
+        "id": "C",
+        "label": "A==03, B==04"
+      },
+      {
+        "id": "D",
+        "label": "A==02, B==05"
+      },
+      {
+        "id": "E",
+        "label": "A==03, B==05"
+      },
+      {
+        "id": "F",
+        "label": "A==01, B==05"
+      }
+    ],
+    "correctOptionIds": [
+      "F"
+    ],
+    "explanation": "Answer: A==01, B==05\nSource: official answer key\nOrigin: w23-final-b, question 31, PDF page 8"
+  },
+  {
+    "id": "w23-final-b-q32",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "The following sequence of bytes encodes a GBz80 function whose parameters are stored in registers A and B. What operation does it implement?",
+    "code": "26 00 6F 29 05 20 FC C9",
+    "options": [
+      {
+        "id": "A",
+        "label": "A * (2^B)"
+      },
+      {
+        "id": "B",
+        "label": "A * B"
+      },
+      {
+        "id": "C",
+        "label": "(2 * A) + B"
+      },
+      {
+        "id": "D",
+        "label": "A + B^2"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: A * (2^B)\nSource: official answer key\nOrigin: w23-final-b, question 32, PDF page 8"
+  },
+  {
+    "id": "w23-final-b-q33",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Assuming BC > 0, what is the total number of cycles of this code, expressed as a function of BC?",
+    "code": ".loop:\n    LD A,[DE]\n    LD [HLI],A\n    INC DE\n    DEC BC\n    LD A,B\n    OR C\n    JR NZ,.loop\n    RET",
+    "options": [
+      {
+        "id": "A",
+        "label": "44 * BC + 12"
+      },
+      {
+        "id": "B",
+        "label": "44 * BC + 16"
+      },
+      {
+        "id": "C",
+        "label": "48 * BC + 12"
+      },
+      {
+        "id": "D",
+        "label": "52 * BC + 12"
+      },
+      {
+        "id": "E",
+        "label": "52 * BC + 16"
+      },
+      {
+        "id": "F",
+        "label": "48 * BC + 16"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Answer: 52 * BC + 12\nSource: official answer key\nOrigin: w23-final-b, question 33, PDF page 9"
+  },
+  {
+    "id": "w23-final-b-q34",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Consider the following code snippet. What is the total number of cycles of this code?",
+    "code": "ClearHL:\n    ld b,100\n    ld a,0\n.loop:\n    ld [hl+],a\n    dec b\n    jr nz,.loop",
+    "options": [
+      {
+        "id": "A",
+        "label": "2412"
+      },
+      {
+        "id": "B",
+        "label": "2016"
+      },
+      {
+        "id": "C",
+        "label": "2408"
+      },
+      {
+        "id": "D",
+        "label": "2012"
+      },
+      {
+        "id": "E",
+        "label": "2416"
+      },
+      {
+        "id": "F",
+        "label": "2008"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: 2412\nSource: official answer key\nOrigin: w23-final-b, question 34, PDF page 9"
+  },
+  {
+    "id": "w23-final-b-q35",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "It looks reasonable. However, the instruction \"LD B,[DE]\" does not exist. What sequence of instructions can replace it, without introducing an error in the function?",
+    "code": "; Sorts two unsigned 8-bit numbers in memory locations pointed to by HL and DE\nld a,[hl]\nld b,[de]\ncp b\njr c,swap_numbers\nret\nswap_numbers:\nld [hl],b\nld [de],a\nret",
+    "options": [
+      {
+        "id": "A",
+        "label": "`PUSH DE ; POP HL ; LD B,[HL]`"
+      },
+      {
+        "id": "B",
+        "label": "`PUSH DE ; LD B,[HL] ; POP HL`"
+      },
+      {
+        "id": "C",
+        "label": "`PUSH AF ; LD A,[DE] ; LD B,A ; POP AF`"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: `PUSH AF ; LD A,[DE] ; LD B,A ; POP AF`\nSource: official answer key\nOrigin: w23-final-b, question 35, PDF page 10"
+  },
+  {
+    "id": "w23-final-b-q36",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In the previous code, can the JR followed by RET be optimized?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Remove the RET instruction"
+      },
+      {
+        "id": "B",
+        "label": "Replace them by RET NC"
+      },
+      {
+        "id": "C",
+        "label": "Replace them by RET C"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Replace them by RET NC\nSource: official answer key\nOrigin: w23-final-b, question 36, PDF page 10"
+  },
+  {
+    "id": "w23-final-b-q37",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A label \"variable\" is defined to some memory address. The SMALLEST sequence of instructions (in total size of instructions in bytes) to test if that value is zero, jump to label \".zero\" is:",
+    "options": [
+      {
+        "id": "A",
+        "label": "`LD A,[variable] ; OR A ; JP Z, .zero`"
+      },
+      {
+        "id": "B",
+        "label": "`OR [variable] ; OR A ; JP Z, .zero`"
+      },
+      {
+        "id": "C",
+        "label": "`LD A,[variable] ; OR 0 ; JP Z, .zero`"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: `LD A,[variable] ; OR A ; JP Z, .zero`\nSource: official answer key\nOrigin: w23-final-b, question 37, PDF page 10"
+  },
+  {
+    "id": "w23-final-b-q38",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Consider the following GBz80 function. Which register holds the value being searched for?",
+    "code": "search:\n    cp [hl]\n    ret z\n    inc hl\n    dec b\n    jr nz, search\n    ld hl,-1\n    ret",
+    "options": [
+      {
+        "id": "A",
+        "label": "Z"
+      },
+      {
+        "id": "B",
+        "label": "HL"
+      },
+      {
+        "id": "C",
+        "label": "A"
+      },
+      {
+        "id": "D",
+        "label": "B"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: A\nSource: official answer key\nOrigin: w23-final-b, question 38, PDF page 11"
+  },
+  {
+    "id": "w23-final-b-q39",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "How does the code indicate whether the value was found or not?",
+    "code": "search:\n    cp [hl]\n    ret z\n    inc hl\n    dec b\n    jr nz, search\n    ld hl,-1\n    ret",
+    "options": [
+      {
+        "id": "A",
+        "label": "By jumping to a different section of code"
+      },
+      {
+        "id": "B",
+        "label": "By setting the zero flag"
+      },
+      {
+        "id": "C",
+        "label": "By returning a specific value in HL"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: By returning a specific value in HL\nSource: official answer key\nOrigin: w23-final-b, question 39, PDF page 11"
+  },
+  {
+    "id": "w23-final-b-q40",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Which register is used to keep track of the current position within the list?",
+    "code": "search:\n    cp [hl]\n    ret z\n    inc hl\n    dec b\n    jr nz, search\n    ld hl,-1\n    ret",
+    "options": [
+      {
+        "id": "A",
+        "label": "HL"
+      },
+      {
+        "id": "B",
+        "label": "A"
+      },
+      {
+        "id": "C",
+        "label": "B"
+      },
+      {
+        "id": "D",
+        "label": "CP"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: HL\nSource: official answer key\nOrigin: w23-final-b, question 40, PDF page 11"
+  },
+  {
+    "id": "s24-exam-a-q05",
+    "topic": "GBz80 Architecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In GBz80 architecture, which one of the following instructions directly affects the Program Counter?",
+    "options": [
+      {
+        "id": "A",
+        "label": "POP HL"
+      },
+      {
+        "id": "B",
+        "label": "ADD C"
+      },
+      {
+        "id": "C",
+        "label": "JP label"
+      },
+      {
+        "id": "D",
+        "label": "LD B, \\$FF"
+      },
+      {
+        "id": "E",
+        "label": "INC BC"
+      },
+      {
+        "id": "F",
+        "label": "CP 144"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: JP label\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 5, PDF page 11"
+  },
+  {
+    "id": "s24-exam-a-q06",
+    "topic": "GBz80 Architecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In GBz80 architecture, a routine must always execute as its last instruction:",
+    "options": [
+      {
+        "id": "A",
+        "label": "CALL"
+      },
+      {
+        "id": "B",
+        "label": "POP AF"
+      },
+      {
+        "id": "C",
+        "label": "JR Z, routine"
+      },
+      {
+        "id": "D",
+        "label": "JP main"
+      },
+      {
+        "id": "E",
+        "label": "RET"
+      },
+      {
+        "id": "F",
+        "label": "PUSH AF"
+      }
+    ],
+    "correctOptionIds": [
+      "E"
+    ],
+    "explanation": "Answer: RET\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 6, PDF page 13"
+  },
+  {
+    "id": "s24-exam-a-q08",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Consider the following GBz80 snippet. What is its primary purpose?",
+    "code": "program:\n    LD A, [DE]\n    INC DE\n    LDI [HL], A\n    DEC BC\n    LD A, B\n    OR C\n    JR NZ, program",
+    "options": [
+      {
+        "id": "A",
+        "label": "To wait until the next VBlank."
+      },
+      {
+        "id": "B",
+        "label": "To calculate the sum of values stored in a memory region."
+      },
+      {
+        "id": "C",
+        "label": "To swap the content of the registers DE and HL."
+      },
+      {
+        "id": "D",
+        "label": "To fill a specified region of memory with zeros."
+      },
+      {
+        "id": "E",
+        "label": "To copy a block of memory from one location to another."
+      },
+      {
+        "id": "F",
+        "label": "To increment by one all the values from [DE] to [HL]."
+      }
+    ],
+    "correctOptionIds": [
+      "E"
+    ],
+    "explanation": "Answer: To copy a block of memory from one location to another.\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 8, PDF page 17"
+  },
+  {
+    "id": "w24-exam-a-q01",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Given an FSM with 5 states, what is the minimum number of bits required to represent its current state in a circuit implementation?",
+    "options": [
+      {
+        "id": "A",
+        "label": "2"
+      },
+      {
+        "id": "B",
+        "label": "5"
+      },
+      {
+        "id": "C",
+        "label": "3"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: 3\nSource: official answer key\nOrigin: w24-exam-a, question 1, PDF page 2"
+  },
+  {
+    "id": "w24-exam-a-q02",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "An FSM designed to recognize the sequence \"101\" in its input would have a minimum of:",
+    "options": [
+      {
+        "id": "A",
+        "label": "states 3"
+      },
+      {
+        "id": "B",
+        "label": "states 4"
+      },
+      {
+        "id": "C",
+        "label": "states 2"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: states 4\nSource: official answer key\nOrigin: w24-exam-a, question 2, PDF page 2"
+  },
+  {
+    "id": "w24-exam-a-q03",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "image",
+    "prompt": "Consider the following implementation of an FSM. The output Q will be TRUE for one clock cycle after:",
+    "image": {
+      "src": "/question-assets/past-exam/2025_exam_a_q03_fsm_circuit.png",
+      "alt": "Source image for w24-exam-a question 3"
+    },
+    "options": [
+      {
+        "id": "A",
+        "label": "A is FALSE followed by B is TRUE."
+      },
+      {
+        "id": "B",
+        "label": "A is TRUE followed by B is TRUE."
+      },
+      {
+        "id": "C",
+        "label": "A is TRUE followed by B is FALSE."
+      },
+      {
+        "id": "D",
+        "label": "A is FALSE followed by B is FALSE."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: A is TRUE followed by B is TRUE.\nSource: official answer key\nOrigin: w24-exam-a, question 3, PDF page 2"
+  },
+  {
+    "id": "w24-exam-a-q04",
+    "topic": "Finite State Machines (FSM)",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Consider the previous circuit. Assume all gates (including with negations on their inputs) have a propagation delay of 90ps and a contamination delay of 50ps. Also, the register has setup time of 50ps, a hold time of 40ps, a clock-to-Q propagation delay of 60ps, and a clock-to-Q contamination delay of 40ps. What is the minimum clock clock period Tc of the circuit?",
+    "options": [
+      {
+        "id": "A",
+        "label": "90ps"
+      },
+      {
+        "id": "B",
+        "label": "200ps"
+      },
+      {
+        "id": "C",
+        "label": "240ps"
+      },
+      {
+        "id": "D",
+        "label": "130ps"
+      },
+      {
+        "id": "E",
+        "label": "100ps"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: 200ps\nSource: official answer key\nOrigin: w24-exam-a, question 4, PDF page 2"
+  },
+  {
+    "id": "w24-exam-a-q05",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A full adder circuit, compared to a half adder, has the additional capability to:",
+    "options": [
+      {
+        "id": "A",
+        "label": "Accommodate multi-bit additions."
+      },
+      {
+        "id": "B",
+        "label": "Process carry-in signals."
+      },
+      {
+        "id": "C",
+        "label": "Handle subtraction."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Process carry-in signals.\nSource: official answer key\nOrigin: w24-exam-a, question 5, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q06",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "An ALU that can perform the set of operations: addition, subtraction, logical AND, and logical OR, would require:",
+    "options": [
+      {
+        "id": "A",
+        "label": "2 control signals."
+      },
+      {
+        "id": "B",
+        "label": "3 control signals."
+      },
+      {
+        "id": "C",
+        "label": "4 control signals."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: 2 control signals.\nSource: official answer key\nOrigin: w24-exam-a, question 6, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q07",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which of these operations CANNOT be directly performed by the GameBoy's ALU?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Subtraction"
+      },
+      {
+        "id": "B",
+        "label": "Multiplication"
+      },
+      {
+        "id": "C",
+        "label": "Exclusive OR"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: Multiplication\nSource: official answer key\nOrigin: w24-exam-a, question 7, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q08",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a sequential circuit, which type of memory is likely used to store the current time?",
+    "options": [
+      {
+        "id": "A",
+        "label": "ALU"
+      },
+      {
+        "id": "B",
+        "label": "ROM"
+      },
+      {
+        "id": "C",
+        "label": "RAM"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: RAM\nSource: official answer key\nOrigin: w24-exam-a, question 8, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q09",
+    "topic": "CISC Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "GBz80 instruction size is",
+    "options": [
+      {
+        "id": "A",
+        "label": "variable-length (depends on the instruction)"
+      },
+      {
+        "id": "B",
+        "label": "4 bytes"
+      },
+      {
+        "id": "C",
+        "label": "8 bytes"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: variable-length (depends on the instruction)\nSource: official answer key\nOrigin: w24-exam-a, question 9, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q10",
+    "topic": "CISC Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which instruction in the Game Boy Assembly instruction set has the most microinstructions associated with it?",
+    "options": [
+      {
+        "id": "A",
+        "label": "JP HL"
+      },
+      {
+        "id": "B",
+        "label": "CALL LABEL"
+      },
+      {
+        "id": "C",
+        "label": "LD [HL], A"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: CALL LABEL\nSource: official answer key\nOrigin: w24-exam-a, question 10, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q11",
+    "topic": "CISC Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is one difference between \"JP label\" and \"CALL label\"?",
+    "options": [
+      {
+        "id": "A",
+        "label": "The use of the 16-bit registers."
+      },
+      {
+        "id": "B",
+        "label": "The use of the ALU."
+      },
+      {
+        "id": "C",
+        "label": "The use of the stack."
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: The use of the stack.\nSource: official answer key\nOrigin: w24-exam-a, question 11, PDF page 3"
+  },
+  {
+    "id": "w24-exam-a-q12",
+    "topic": "CISC Instructions Encoding and Microinstructions",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In GBz80 assembly, how are registers operands encoded within \"LD r,r\" instructions?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Using 3-bit codes in the opcode"
+      },
+      {
+        "id": "B",
+        "label": "Instructions implicitly use specific registers without encoding them."
+      },
+      {
+        "id": "C",
+        "label": "Using separate bytes following the opcode"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Using 3-bit codes in the opcode\nSource: official answer key\nOrigin: w24-exam-a, question 12, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q13",
+    "topic": "MIPS architecture and microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In MIPS assembly, what is the instruction to return from a function?",
+    "options": [
+      {
+        "id": "A",
+        "label": "JR \\$sp"
+      },
+      {
+        "id": "B",
+        "label": "JR \\$ra"
+      },
+      {
+        "id": "C",
+        "label": "LW \\$ra, 0(\\$sp)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: JR \\$ra\nSource: official answer key\nOrigin: w24-exam-a, question 13, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q14",
+    "topic": "MIPS architecture and microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "MIPS Instructions size is",
+    "options": [
+      {
+        "id": "A",
+        "label": "variable-length (depends on the instruction)"
+      },
+      {
+        "id": "B",
+        "label": "1 byte"
+      },
+      {
+        "id": "C",
+        "label": "4 bytes"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: 4 bytes\nSource: official answer key\nOrigin: w24-exam-a, question 14, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q15",
+    "topic": "MIPS architecture and microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a typical MIPS multi-cycle microarchitecture, which of the following stages performs the actual arithmetic or logical operation on the operands?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Execute"
+      },
+      {
+        "id": "B",
+        "label": "Decode"
+      },
+      {
+        "id": "C",
+        "label": "Fetch"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Execute\nSource: official answer key\nOrigin: w24-exam-a, question 15, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q16",
+    "topic": "MIPS architecture and microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary advantage of using a multi-cycle microarchitecture over a single-cycle approach?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Increasing the complexity of instructions"
+      },
+      {
+        "id": "B",
+        "label": "Simplifying the control logic"
+      },
+      {
+        "id": "C",
+        "label": "Using a single memory for instructions and data"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: Using a single memory for instructions and data\nSource: official answer key\nOrigin: w24-exam-a, question 16, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q17",
+    "topic": "MIPS architecture and microarchitecture",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the primary function of the instruction register (IR) within a processor?",
+    "options": [
+      {
+        "id": "A",
+        "label": "To store the result of an arithmetic or logical operation"
+      },
+      {
+        "id": "B",
+        "label": "To fetch instructions from memory"
+      },
+      {
+        "id": "C",
+        "label": "To store the address of the next instruction to be executed"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: To fetch instructions from memory\nSource: official answer key\nOrigin: w24-exam-a, question 17, PDF page 4"
+  },
+  {
+    "id": "w24-exam-a-q18",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Consider the following GBz80 code snippet. What are the values of registers A and B after its execution?",
+    "code": "LD A,1\nLD B,2\nLD C,A\nADD B\nADD C\nINC BC",
+    "options": [
+      {
+        "id": "A",
+        "label": "A==7, B==2"
+      },
+      {
+        "id": "B",
+        "label": "A==1, B==2"
+      },
+      {
+        "id": "C",
+        "label": "A==4, B==2"
+      },
+      {
+        "id": "D",
+        "label": "A==1, B==3"
+      },
+      {
+        "id": "E",
+        "label": "A==6, B==2"
+      },
+      {
+        "id": "F",
+        "label": "A==4, B==3"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: A==4, B==2\nSource: official answer key\nOrigin: w24-exam-a, question 18, PDF page 5"
+  },
+  {
+    "id": "w24-exam-a-q19",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In the GBz80 instruction set, the hexadecimal encoding of \"ADD A, B\" is:",
+    "options": [
+      {
+        "id": "A",
+        "label": "80"
+      },
+      {
+        "id": "B",
+        "label": "83"
+      },
+      {
+        "id": "C",
+        "label": "81"
+      },
+      {
+        "id": "D",
+        "label": "82"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: 80\nSource: official answer key\nOrigin: w24-exam-a, question 19, PDF page 5"
+  },
+  {
+    "id": "w24-exam-a-q20",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Assuming BC > 0, what is the total number of cycles of this code, expressed as a function of BC?",
+    "code": ".loop:\n    LD A, [DE]\n    LD [HLI], A\n    INC DE\n    DEC BC\n    LD A, B\n    OR C\n    JR NZ, .loop\n    RET",
+    "options": [
+      {
+        "id": "A",
+        "label": "52 * BC + 16"
+      },
+      {
+        "id": "B",
+        "label": "48 * BC + 16"
+      },
+      {
+        "id": "C",
+        "label": "48 * BC + 12"
+      },
+      {
+        "id": "D",
+        "label": "44 * BC + 16"
+      },
+      {
+        "id": "E",
+        "label": "44 * BC + 12"
+      },
+      {
+        "id": "F",
+        "label": "52 * BC + 12"
+      }
+    ],
+    "correctOptionIds": [
+      "F"
+    ],
+    "explanation": "Answer: 52 * BC + 12\nSource: official answer key\nOrigin: w24-exam-a, question 20, PDF page 5"
+  },
+  {
+    "id": "w24-exam-a-q21",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Convert the following sequence of bytes into a sequence of GBz80 instructions. This snippet contains a loop. The number of repeats of the loop depends on the value of register:",
+    "code": "AF 47 4F 2A 81 30 01 04 4F 15 20 F7 C9",
+    "options": [
+      {
+        "id": "A",
+        "label": "C"
+      },
+      {
+        "id": "B",
+        "label": "HL"
+      },
+      {
+        "id": "C",
+        "label": "D"
+      },
+      {
+        "id": "D",
+        "label": "A"
+      },
+      {
+        "id": "E",
+        "label": "B"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: D\nSource: official answer key\nOrigin: w24-exam-a, question 21, PDF page 6\nNote: The byte sequence decodes to XOR A; LD B,A; LD C,A; LD A,[HL+]; ADD C; JR NC,+1; INC B; LD C,A; DEC D; JR NZ,-9; RET."
+  },
+  {
+    "id": "w24-exam-a-q22",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Variables should be declared as labels in:",
+    "options": [
+      {
+        "id": "A",
+        "label": "Work RAM"
+      },
+      {
+        "id": "B",
+        "label": "Video RAM"
+      },
+      {
+        "id": "C",
+        "label": "ROM"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: Work RAM\nSource: official answer key\nOrigin: w24-exam-a, question 22, PDF page 6"
+  },
+  {
+    "id": "w24-exam-a-q23",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "To create a loop that repeats a section of code until a specific condition is met, which control flow construct would be most appropriate?",
+    "options": [
+      {
+        "id": "A",
+        "label": "JP label"
+      },
+      {
+        "id": "B",
+        "label": "JR NZ, label"
+      },
+      {
+        "id": "C",
+        "label": "CALL label"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Answer: JR NZ, label\nSource: official answer key\nOrigin: w24-exam-a, question 23, PDF page 6"
+  },
+  {
+    "id": "w24-exam-a-q24",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which of the following instructions takes the most cycles to execute?",
+    "options": [
+      {
+        "id": "A",
+        "label": "NOP"
+      },
+      {
+        "id": "B",
+        "label": "LD A, B"
+      },
+      {
+        "id": "C",
+        "label": "CALL label"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Answer: CALL label\nSource: official answer key\nOrigin: w24-exam-a, question 24, PDF page 6"
+  },
+  {
+    "id": "w24-exam-a-q25",
+    "topic": "GBz80 Assembly",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A label \"variable\" is defined to some memory address. The smallest sequence of instructions (in total size of instructions in bytes) to test if that value is zero, jump to label \".zero\" is:",
+    "options": [
+      {
+        "id": "A",
+        "label": "LD A,[variable] ; OR A ; JP Z, .zero"
+      },
+      {
+        "id": "B",
+        "label": "LD A,[variable] ; OR 0 ; JP Z, .zero"
+      },
+      {
+        "id": "C",
+        "label": "OR [variable] ; OR A ; JP Z, .zero"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Answer: LD A,[variable] ; OR A ; JP Z, .zero\nSource: official answer key\nOrigin: w24-exam-a, question 25, PDF page 6"
   }
 ]

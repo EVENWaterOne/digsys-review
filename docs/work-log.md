@@ -34,3 +34,12 @@
 - 保留代码题能力，新增更贴近课程后半段的 MIPS 指令片段题。
 - 更新 README，说明 JSON 中 LaTeX 反斜杠需要写成双反斜杠。
 - 重新执行 `npm run build`，构建通过。
+
+## 2026-06-24 Past Exam Question Integration
+
+- 检查 `PastExam/WebReview` 导入包：68 道选择题，2 张 past-exam 图片资源，无 schema 问题。
+- 保留主项目 6 道模拟题，并追加 68 道 past-exam 选择题，合并后 `src/data/questions.json` 共 74 题。
+- 复制图片资源到 `public/question-assets/past-exam/`。
+- 修复 `MathText`，使 `\$` 这类字面量美元符号显示为 `$`，且不会触发 KaTeX 公式解析。
+- 独立校验结果：74 题，导入题 68 题，字段/答案/图片路径问题数为 0。
+- 重新执行 `npm run build`，构建通过；Vite 提示主 chunk 超过 500 kB，但不影响运行。

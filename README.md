@@ -13,6 +13,7 @@
 - 支持文字题、代码题和图片题
 - 支持 KaTeX 公式渲染，题干、选项和解析可使用 `$...$` 与 `$$...$$`
 - 响应式布局，适配电脑、平板和手机
+- 已整合 past exam 选择题：当前题库共 74 题，其中 68 题来自历年考试转换包
 
 ## 运行
 
@@ -39,7 +40,7 @@ npm run build
 WebReview/
   public/question-assets/      # 图片题资源
   src/components/              # 复用组件
-  src/data/questions.json      # 独立题库 JSON
+  src/data/questions.json      # 独立题库 JSON，含模拟题和 past exam 题
   src/design/                  # 网页视觉设计相关文件
   src/lib/                     # 题库读取与 localStorage 逻辑
   src/pages/                   # 首页、练习、考试、错题、统计页面
@@ -69,6 +70,8 @@ WebReview/
 ```
 
 图片题可把图片放在 `public/question-assets/`，然后在 JSON 中使用 `/question-assets/文件名`。
+
+当前 past exam 图片资源位于 `public/question-assets/past-exam/`。
 
 ## 公式写法
 
