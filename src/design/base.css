@@ -190,6 +190,31 @@ main {
   flex-wrap: wrap;
 }
 
+.resume-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  background: #f0f9ff;
+  padding: 14px 16px;
+}
+
+.resume-strip span,
+.practice-controls label {
+  display: block;
+  color: #64748b;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.resume-strip strong {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a;
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -253,6 +278,28 @@ main {
   font-size: 0.84rem;
   font-weight: 700;
   padding: 5px 10px;
+}
+
+.tag-row,
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-row {
+  margin: -6px 0 16px;
+}
+
+.tag-row span,
+.tag-cloud span {
+  border: 1px solid #cde3e1;
+  border-radius: 999px;
+  background: #f6fffd;
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 8px;
 }
 
 .question-card h2 {
@@ -353,6 +400,43 @@ main {
 .answer-panel p {
   margin: 8px 0 0;
   line-height: 1.7;
+}
+
+.answer-panel small {
+  display: block;
+  margin-top: 8px;
+  color: #0f766e;
+  line-height: 1.5;
+}
+
+.practice-controls {
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.practice-controls select {
+  min-width: 220px;
+  min-height: 40px;
+  margin-top: 5px;
+  border: 1px solid #d7dde8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #243044;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.inline-alert {
+  margin: 0;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a3412;
+  padding: 10px 12px;
+  font-weight: 700;
 }
 
 .math-text,
@@ -460,13 +544,21 @@ main {
   }
 
   .hero-actions,
-  .toolbar {
+  .toolbar,
+  .practice-controls,
+  .resume-strip {
     justify-content: stretch;
   }
 
   .hero-actions button,
-  .toolbar button {
+  .toolbar button,
+  .practice-controls button {
     flex: 1 1 140px;
+  }
+
+  .practice-controls label,
+  .practice-controls select {
+    width: 100%;
   }
 
   .stat-grid {

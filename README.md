@@ -8,12 +8,16 @@
 - 支持单选题和多选题
 - 题目从 `src/data/questions.json` 读取
 - 练习模式提交后立即显示答案和解析
+- 练习模式支持按标签筛题、均衡随机抽题、本轮不重复，刷完后再重新随机
+- 练习模式跳过已选择但未提交的题目前会提示确认
 - 考试模式最后统一判分
 - 使用 localStorage 保存答题记录、错题、练习进度和考试进度
+- 支持中途保存并退出，再回到首页继续练习
 - 支持文字题、代码题和图片题
+- 支持题目标签分类，题卡会展示知识点和来源标签
 - 支持 KaTeX 公式渲染，题干、选项和解析可使用 `$...$` 与 `$$...$$`
 - 响应式布局，适配电脑、平板和手机
-- 已整合 past exam 选择题：当前题库共 74 题，其中 68 题来自历年考试转换包
+- 已整合 past exam 选择题：当前题库共 77 题，其中 68 题来自历年考试转换包，9 题为根据 `DigSys_Exam_Focus_Complete.md` 生成并明确标注的 self-test 题
 
 ## 运行
 
@@ -56,6 +60,9 @@ WebReview/
 {
   "id": "unique-id",
   "topic": "Boolean Algebra",
+  "tags": ["boolean-algebra", "self-test"],
+  "sourceType": "self-test",
+  "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md.",
   "difficulty": "easy",
   "mode": "single",
   "contentType": "text",
@@ -68,6 +75,13 @@ WebReview/
   "explanation": "解析"
 }
 ```
+
+`sourceType` 目前使用：
+
+- `past-exam`：来自历年试题转换包。
+- `self-test`：根据复习重点自行补充的测试题；这类题必须带 `self-test` 标签，并在 `note` 中说明来源。
+
+标签建议使用小写短横线形式，例如 `gbz80`、`cycle-counting`、`pipeline`、`fsm`、`two-complement`。
 
 图片题可把图片放在 `public/question-assets/`，然后在 JSON 中使用 `/question-assets/文件名`。
 

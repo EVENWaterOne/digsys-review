@@ -1,6 +1,7 @@
 export type QuestionMode = "single" | "multiple";
 export type QuestionContentType = "text" | "code" | "image";
 export type StudyMode = "practice" | "exam";
+export type QuestionSourceType = "past-exam" | "self-test";
 
 export interface Option {
   id: string;
@@ -10,6 +11,9 @@ export interface Option {
 export interface Question {
   id: string;
   topic: string;
+  tags: string[];
+  sourceType: QuestionSourceType;
+  note?: string;
   difficulty: "easy" | "medium" | "hard";
   mode: QuestionMode;
   contentType: QuestionContentType;
@@ -35,6 +39,10 @@ export interface AttemptRecord {
 
 export interface ProgressState {
   currentIndex: number;
+  currentQuestionId?: string;
+  questionOrder?: string[];
+  completedQuestionIds?: string[];
+  activeTag?: string;
   selectedByQuestionId: Record<string, string[]>;
   updatedAt: string;
 }

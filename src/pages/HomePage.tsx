@@ -1,4 +1,4 @@
-import { questions } from "../lib/questions";
+import { ALL_TAGS, getAllTags, questions } from "../lib/questions";
 import { getState } from "../lib/storage";
 import type { RouteKey } from "../routing";
 
@@ -8,6 +8,11 @@ interface HomePageProps {
 
 export function HomePage({ onNavigate }: HomePageProps) {
   const state = getState();
+  const tags = getAllTags();
+  const practiceProgress = state.practiceProgress;
+  const completedPracticeCount = practiceProgress?.completedQuestionIds?.length ?? 0;
+  const practiceTotal = practiceProgress?.questionOrder?.length ?? questions.length;
+  const practiceTag = practiceProgress?.activeTag === ALL_TAGS || !practiceProgress?.activeTag ? "全部标签" : practiceProgress.activeTag;
 
   return (
     <section className="page-stack">
@@ -21,13 +26,27 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
         <div className="hero-actions">
           <button className="primary-button" onClick={() => onNavigate("practice")} type="button">
-            开始练习
+            {practiceProgress ? "继续练习" : "开始练习"}
           </button>
           <button className="secondary-button" onClick={() => onNavigate("exam")} type="button">
             模拟考试
           </button>
         </div>
       </div>
+
+      {practiceProgress ? (
+        <article className="resume-strip">
+          <div>
+            <span>已保存练习进度</span>
+            <strong>
+              {practiceTag} · 本轮 {completedPracticeCount} / {practiceTotal}
+            </strong>
+          </div>
+          <button className="secondary-button" onClick={() => onNavigate("practice")} type="button">
+            继续
+          </button>
+        </article>
+      ) : null}
 
       <div className="stat-grid">
         <div className="stat-card">
@@ -43,6 +62,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <strong>{state.attempts.length}</strong>
         </div>
       </div>
+
+      <section className="tag-cloud" aria-label="题库标签">
+        {tags.slice(0, 18).map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </section>
     </section>
   );
 }

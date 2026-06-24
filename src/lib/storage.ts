@@ -77,6 +77,10 @@ export function loadPracticeProgress(): ProgressState | null {
   return getState().practiceProgress;
 }
 
+export function clearPracticeProgress(): void {
+  saveState({ ...getState(), practiceProgress: null });
+}
+
 export function saveExamProgress(progress: ProgressState): void {
   saveState({ ...getState(), examProgress: progress });
 }

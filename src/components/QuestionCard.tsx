@@ -18,6 +18,13 @@ export function QuestionCard({ question, selectedOptionIds, revealAnswer = false
         <span>{question.topic}</span>
         <span>{question.mode === "single" ? "单选" : "多选"}</span>
         <span>{difficultyLabel[question.difficulty]}</span>
+        <span>{question.sourceType === "self-test" ? "自出测试题" : "历年题"}</span>
+      </div>
+
+      <div className="tag-row" aria-label="题目标签">
+        {question.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
       </div>
 
       <h2>
@@ -63,6 +70,7 @@ export function QuestionCard({ question, selectedOptionIds, revealAnswer = false
       {revealAnswer ? (
         <div className="answer-panel">
           <strong>答案：{question.correctOptionIds.join(", ")}</strong>
+          {question.note ? <small>{question.note}</small> : null}
           <p>
             <MathText text={question.explanation} inline />
           </p>

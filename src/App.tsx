@@ -23,7 +23,7 @@ export default function App() {
 
   const page = {
     home: <HomePage onNavigate={navigate} />,
-    practice: <PracticePage />,
+    practice: <PracticePage onNavigate={navigate} />,
     exam: <ExamPage onNavigate={navigate} />,
     mistakes: <MistakesPage />,
     results: <ResultsPage />,

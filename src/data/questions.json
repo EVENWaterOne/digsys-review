@@ -1,193 +1,5 @@
 [
   {
-    "id": "ds-binary-001",
-    "topic": "Number Systems",
-    "difficulty": "easy",
-    "mode": "single",
-    "contentType": "text",
-    "prompt": "二进制数 101101 转换为十进制是多少？",
-    "options": [
-      {
-        "id": "A",
-        "label": "41"
-      },
-      {
-        "id": "B",
-        "label": "45"
-      },
-      {
-        "id": "C",
-        "label": "47"
-      },
-      {
-        "id": "D",
-        "label": "53"
-      }
-    ],
-    "correctOptionIds": [
-      "B"
-    ],
-    "explanation": "101101₂ = 32 + 8 + 4 + 1 = 45。"
-  },
-  {
-    "id": "ds-boolean-001",
-    "topic": "Boolean Algebra",
-    "difficulty": "medium",
-    "mode": "multiple",
-    "contentType": "text",
-    "prompt": "关于布尔代数恒等式，哪些说法是正确的？",
-    "options": [
-      {
-        "id": "A",
-        "label": "$A + A = A$"
-      },
-      {
-        "id": "B",
-        "label": "$A \\cdot A = 0$"
-      },
-      {
-        "id": "C",
-        "label": "$A + \\overline{A} = 1$"
-      },
-      {
-        "id": "D",
-        "label": "$A \\cdot 1 = A$"
-      }
-    ],
-    "correctOptionIds": [
-      "A",
-      "C",
-      "D"
-    ],
-    "explanation": "幂等律给出 $A + A = A$ 和 $A \\cdot A = A$；互补律给出 $A + \\overline{A} = 1$；恒等律给出 $A \\cdot 1 = A$。"
-  },
-  {
-    "id": "ds-boolean-002",
-    "topic": "Boolean Algebra",
-    "difficulty": "medium",
-    "mode": "single",
-    "contentType": "text",
-    "prompt": "布尔表达式 $F = A\\overline{B} + \\overline{A}B$ 最接近哪个逻辑门？",
-    "options": [
-      {
-        "id": "A",
-        "label": "AND"
-      },
-      {
-        "id": "B",
-        "label": "OR"
-      },
-      {
-        "id": "C",
-        "label": "XOR"
-      },
-      {
-        "id": "D",
-        "label": "XNOR"
-      }
-    ],
-    "correctOptionIds": [
-      "C"
-    ],
-    "explanation": "当 $A$ 与 $B$ 不相同时，$F = 1$；当二者相同时，$F = 0$，这正是 XOR。"
-  },
-  {
-    "id": "ds-mips-001",
-    "topic": "MIPS Datapath",
-    "difficulty": "medium",
-    "mode": "single",
-    "contentType": "code",
-    "prompt": "下面 MIPS 指令片段中，第二条指令主要依赖第一条指令的哪个结果？",
-    "code": "lw  $t0, 0($t1)\nadd $t2, $t0, $t3",
-    "options": [
-      {
-        "id": "A",
-        "label": "第一条指令从内存读出的 $t0$ 数据"
-      },
-      {
-        "id": "B",
-        "label": "第一条指令写入的程序计数器 PC"
-      },
-      {
-        "id": "C",
-        "label": "第一条指令使用的立即数 0"
-      },
-      {
-        "id": "D",
-        "label": "第一条指令的操作码 opcode"
-      }
-    ],
-    "correctOptionIds": [
-      "A"
-    ],
-    "explanation": "$add$ 需要读取 $t0$，而 $t0$ 正是前一条 $lw$ 从内存载入的结果；这对应数据相关。"
-  },
-  {
-    "id": "ds-kmap-001",
-    "topic": "Karnaugh Map",
-    "difficulty": "hard",
-    "mode": "multiple",
-    "contentType": "image",
-    "prompt": "根据图中的 2 变量 K-map，哪些最小项输出为 1？",
-    "image": {
-      "src": "/question-assets/kmap-2var.svg",
-      "alt": "2 variable Karnaugh map with ones at cells 01 and 11"
-    },
-    "options": [
-      {
-        "id": "A",
-        "label": "m0"
-      },
-      {
-        "id": "B",
-        "label": "m1"
-      },
-      {
-        "id": "C",
-        "label": "m2"
-      },
-      {
-        "id": "D",
-        "label": "m3"
-      }
-    ],
-    "correctOptionIds": [
-      "B",
-      "D"
-    ],
-    "explanation": "图中为 1 的单元格对应 AB = 01 和 AB = 11，也就是 m1 与 m3。"
-  },
-  {
-    "id": "ds-ff-001",
-    "topic": "Sequential Logic",
-    "difficulty": "easy",
-    "mode": "single",
-    "contentType": "text",
-    "prompt": "D 触发器在有效时钟沿之后，Q 的值会变成什么？",
-    "options": [
-      {
-        "id": "A",
-        "label": "保持原值"
-      },
-      {
-        "id": "B",
-        "label": "变为 D 的当前采样值"
-      },
-      {
-        "id": "C",
-        "label": "一定变为 0"
-      },
-      {
-        "id": "D",
-        "label": "一定变为 1"
-      }
-    ],
-    "correctOptionIds": [
-      "B"
-    ],
-    "explanation": "D 触发器在有效时钟沿采样 D，并在传播延迟后将该值输出到 Q。"
-  },
-  {
     "id": "w23-final-b-q01",
     "topic": "Number Representation",
     "difficulty": "medium",
@@ -211,7 +23,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: 110\nSource: official answer key\nOrigin: w23-final-b, question 1, PDF page 2"
+    "explanation": "Correct answer: C — 110.\n\nFor an unsigned binary number, each bit contributes its value times a power of two. Thus, 1101110₂ = 1×2⁶ + 1×2⁵ + 0×2⁴ + 1×2³ + 1×2² + 1×2¹ + 0×2⁰ = 64 + 32 + 8 + 4 + 2 = 110. As a quick check, a 7-bit unsigned number cannot exceed 127, so 162 cannot be correct.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 1, PDF page 2",
+    "tags": [
+      "number-representation",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q02",
@@ -241,7 +59,14 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: 08A7\nSource: official answer key\nOrigin: w23-final-b, question 2, PDF page 2\nNote: Option c is confirmed as \"19B7\"."
+    "explanation": "Correct answer: B — 08A7.\n\nConvert binary to hexadecimal by grouping the bits into 4-bit nibbles from the right: 0000 1000 1010 0111. These groups correspond to hexadecimal digits 0, 8, A, and 7, respectively, giving 08A7. Option C is transcribed from the original paper as 19B7, but it does not match the binary grouping.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 2, PDF page 2\nNote: Option c is confirmed as \"19B7\".",
+    "tags": [
+      "diagram",
+      "number-representation",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q03",
@@ -267,7 +92,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: 5CB16\nSource: official answer key\nOrigin: w23-final-b, question 3, PDF page 2"
+    "explanation": "Correct answer: A — 5CB16.\n\nGroup the 20-bit binary value into nibbles: 0101 1100 1011 0001 0110. The groups convert to 5, C, B, 1, and 6, so the hexadecimal representation is 5CB16. No padding is required because the original value already contains a multiple of four bits.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 3, PDF page 2",
+    "tags": [
+      "number-representation",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q04",
@@ -293,7 +124,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: 11111001\nSource: official answer key\nOrigin: w23-final-b, question 4, PDF page 2"
+    "explanation": "Correct answer: B — 11111001.\n\nThe original 4-bit value is a two's-complement number whose sign bit is 1, so it is negative. Sign extension preserves its value by copying the sign bit into every newly added high-order position. Extending 1001 from 4 bits to 8 bits therefore gives 1111 1001, which still represents −7.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 4, PDF page 2",
+    "tags": [
+      "number-representation",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q05",
@@ -323,7 +160,13 @@
     "correctOptionIds": [
       "D"
     ],
-    "explanation": "Answer: The maximum 32-bit two's complement value.\nSource: official answer key\nOrigin: w23-final-b, question 5, PDF page 2"
+    "explanation": "Correct answer: D — the maximum 32-bit two's-complement value.\n\nThe word 0x7FFFFFFF has a most significant bit of 0 and all remaining 31 bits equal to 1. In 32-bit two's-complement representation, this equals 2³¹ − 1 = 2,147,483,647, the largest representable positive signed value. The maximum 32-bit unsigned value would instead be 0xFFFFFFFF, and the minimum signed value would be 0x80000000.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 5, PDF page 2",
+    "tags": [
+      "number-representation",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q06",
@@ -349,7 +192,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: 3\nSource: official answer key\nOrigin: w23-final-b, question 6, PDF page 3"
+    "explanation": "Correct answer: B — 3 bits.\n\nWith k state bits, a binary encoding can represent 2ᵏ distinct states. Two bits provide only 4 encodings, which is insufficient for 5 states, while three bits provide 8 encodings. Therefore, the minimum is ceil(log₂ 5) = 3 bits.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 6, PDF page 3",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q07",
@@ -375,7 +224,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Remove them, simplifying the FSM and reducing circuit complexity.\nSource: official answer key\nOrigin: w23-final-b, question 7, PDF page 3"
+    "explanation": "Correct answer: A — remove the unreachable states.\n\nAn unreachable state cannot be entered from the reset state under any valid input sequence. Removing it therefore does not change the observable behavior of the FSM. The reduced state set can require fewer state bits or simpler next-state and output logic, which lowers circuit complexity.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 7, PDF page 3",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q08",
@@ -401,7 +256,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: They offer a clear and concise visual representation of behavior.\nSource: official answer key\nOrigin: w23-final-b, question 8, PDF page 3"
+    "explanation": "Correct answer: B — state diagrams provide a clear visual representation of behavior.\n\nA state diagram shows the possible states and the input-dependent transitions between them; Moore or Mealy outputs can also be attached to states or transitions. This makes the behavior of an FSM easy to understand before deriving tables and logic equations. It does not directly specify transistor-level implementation or detailed timing constraints.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 8, PDF page 3",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q09",
@@ -427,7 +288,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: 2 control signals.\nSource: official answer key\nOrigin: w23-final-b, question 9, PDF page 3"
+    "explanation": "Correct answer: A — 2 control signals.\n\nFour different operations require four distinct control codes. Two binary control bits provide exactly four combinations: 00, 01, 10, and 11. Hence, two control signals are sufficient to select addition, subtraction, AND, or XOR.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 9, PDF page 3",
+    "tags": [
+      "alu",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q10",
@@ -453,7 +320,14 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: To efficiently perform pre-calculated data transformations.\nSource: official answer key\nOrigin: w23-final-b, question 10, PDF page 3"
+    "explanation": "Correct answer: B — to perform pre-calculated transformations efficiently.\n\nA lookup table stores an output value for each possible input address. Instead of recomputing a function with gates or arithmetic each time, the circuit uses the input as an index and reads the pre-stored result. A LUT can implement a Boolean truth table or another fixed mapping; it is not primarily a program-flow mechanism or temporary working storage.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 10, PDF page 3",
+    "tags": [
+      "alu",
+      "lut",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q11",
@@ -483,7 +357,12 @@
     "correctOptionIds": [
       "D"
     ],
-    "explanation": "Answer: 4096\nSource: official answer key\nOrigin: w23-final-b, question 11, PDF page 4"
+    "explanation": "Correct answer: D — 4096 locations.\n\nEach address line can carry either 0 or 1. Therefore, n address lines select 2ⁿ unique addresses. With 12 address lines, the memory contains 2¹² = 4096 addressable locations.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 11, PDF page 4",
+    "tags": [
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q12",
@@ -509,7 +388,12 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: RAM\nSource: official answer key\nOrigin: w23-final-b, question 12, PDF page 4"
+    "explanation": "Correct answer: A — RAM.\n\nThe current time is changing state, so the storage must be writable during normal operation. RAM, registers, or other writable state elements can hold and update such a value. ROM stores fixed data, while an ALU performs computations but is not itself a memory device.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 12, PDF page 4",
+    "tags": [
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q13",
@@ -535,12 +419,18 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: 3 bytes\nSource: official answer key\nOrigin: w23-final-b, question 13, PDF page 4"
+    "explanation": "Correct answer: B — 3 bytes.\n\nThe instruction needs one byte for the opcode and two additional bytes for the 16-bit immediate value `nn`. On the GBz80, the immediate is stored in little-endian order, but it still occupies two bytes. Therefore, the total instruction size is 1 + 2 = 3 bytes.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 13, PDF page 4",
+    "tags": [
+      "gbz80",
+      "instruction-encoding",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q14",
     "topic": "GBz80 Instructions Encoding and Microinstructions",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "In which scenario would you use \"JP HL\" instead of \"RET\"?",
@@ -561,7 +451,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: To unconditionally jump to a specific address in memory.\nSource: official answer key\nOrigin: w23-final-b, question 14, PDF page 4"
+    "explanation": "Correct answer: C — to jump unconditionally to the address held in HL.\n\n`JP HL` copies the 16-bit value in HL into the Program Counter, producing an indirect unconditional jump. It does not use the stack. By contrast, `RET` obtains its destination by popping a previously saved return address from the stack, so it is used to return from a routine.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 14, PDF page 4",
+    "tags": [
+      "gbz80",
+      "instruction-encoding",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q15",
@@ -587,7 +483,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Using 3-bit codes in the opcode\nSource: official answer key\nOrigin: w23-final-b, question 15, PDF page 4"
+    "explanation": "Correct answer: A — the register operands are encoded as 3-bit fields in the opcode.\n\nThe `LD r,r` family uses compact register codes embedded directly in the instruction byte. Three bits can encode eight possibilities, including the ordinary 8-bit registers and the `[HL]` memory operand. Because both source and destination are encoded in the opcode, no separate operand bytes are needed.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 15, PDF page 4",
+    "tags": [
+      "gbz80",
+      "instruction-encoding",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q16",
@@ -613,7 +515,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: It is not affected by the instruction.\nSource: official answer key\nOrigin: w23-final-b, question 16, PDF page 4"
+    "explanation": "Correct answer: C — the zero flag is not affected.\n\n`ADD HL,HL` is a 16-bit addition in the GBz80 instruction set. It updates the subtract, half-carry, and carry flags as specified, but it preserves the previous value of the zero flag. Therefore, the new numerical value of HL does not determine Z for this instruction.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 16, PDF page 4",
+    "tags": [
+      "gbz80",
+      "instruction-encoding",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q17",
@@ -639,7 +547,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: 16 bits\nSource: official answer key\nOrigin: w23-final-b, question 17, PDF page 5"
+    "explanation": "Correct answer: C — 16 bits.\n\nA MIPS I-type instruction is 32 bits wide and is divided into a 6-bit opcode, two 5-bit register fields, and a 16-bit immediate field. The immediate may be interpreted as a signed constant, an unsigned constant, an offset, or part of an address depending on the instruction, but its encoded width remains 16 bits.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 17, PDF page 5",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q18",
@@ -665,7 +579,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: JR \\$ra\nSource: official answer key\nOrigin: w23-final-b, question 18, PDF page 5"
+    "explanation": "Correct answer: A — `JR` to the return-address register.\n\nA MIPS function call places the return address in register `ra`. Returning is therefore performed by `JR ra`, which transfers control to the address stored there. Loading `ra` from the stack may be necessary in a function that saved it, but that load alone does not return; jumping to the stack pointer is also incorrect.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 18, PDF page 5",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q19",
@@ -691,7 +611,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: The propagation delay of logic gates\nSource: official answer key\nOrigin: w23-final-b, question 19, PDF page 5"
+    "explanation": "Correct answer: C — the propagation delay of the logic gates.\n\nIn a multi-cycle processor, every micro-operation must finish within one clock cycle. The clock period must therefore be at least as long as the slowest combinational path used by any cycle, including register delays and setup time. Gate propagation delays directly determine that path delay, whereas the number of architectural registers or the nominal memory capacity does not by itself set the clock period.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 19, PDF page 5",
+    "tags": [
+      "cycle-counting",
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q20",
@@ -717,7 +644,14 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Fetch\nSource: official answer key\nOrigin: w23-final-b, question 20, PDF page 5"
+    "explanation": "Correct answer: B — Fetch.\n\nDuring the instruction-fetch stage, the processor uses the Program Counter to read the instruction from memory and loads that instruction into the Instruction Register. The decode stage then interprets the opcode and operands already held in the IR. Execute occurs later, after decoding.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 20, PDF page 5",
+    "tags": [
+      "cycle-counting",
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q21",
@@ -743,7 +677,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Fetch instructions from memory\nSource: official answer key\nOrigin: w23-final-b, question 21, PDF page 5"
+    "explanation": "Correct answer: A — to support instruction fetching by supplying the instruction address.\n\nThe Program Counter holds the address of the instruction to be fetched, or the address that will become current next, depending on the datapath convention. Its value is sent to instruction memory and is then advanced or replaced by a branch or jump target. Temporary arithmetic results belong in data registers, and arithmetic itself is performed by the ALU.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 21, PDF page 5",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q22",
@@ -773,7 +713,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: \\$FF\nSource: official answer key\nOrigin: w23-final-b, question 22, PDF page 6"
+    "explanation": "Correct answer: C — 0xFF.\n\nRegister A is 8 bits wide, so decrementing 0x00 wraps around modulo 256. Mathematically, 0 − 1 mod 256 = 255, and 255 is 0xFF. This is the same bit pattern as −1 when interpreted as an 8-bit two's-complement value.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 22, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam",
+      "two-complement"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q23",
@@ -799,7 +746,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: JR NZ, \\$20\nSource: official answer key\nOrigin: w23-final-b, question 23, PDF page 6"
+    "explanation": "Correct answer: C — `JR NZ, 0x20`.\n\nA relative jump changes the Program Counter to a branch target when its condition is satisfied; otherwise execution continues at the next instruction. `LD A,[HL]` changes A, and `PUSH HL` changes the stack and stack pointer, but neither is a control-transfer instruction. Therefore, the conditional `JR` is the instruction that directly affects the PC.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 23, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q24",
@@ -825,7 +778,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: To create references for code jumps and data access\nSource: official answer key\nOrigin: w23-final-b, question 24, PDF page 6"
+    "explanation": "Correct answer: B — labels create symbolic references for jumps and data access.\n\nA label names a memory address in the program. The assembler resolves that symbolic name into the displacement or address required by an instruction, allowing code such as jumps, calls, and data loads to remain readable even if layout changes. Labels may also improve visual organization, but their essential purpose is address reference, not execution-speed improvement.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 24, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q25",
@@ -851,7 +810,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Labels are used to identify specific memory addresses for instructions, allowing for code jumps and branches.\nSource: official answer key\nOrigin: w23-final-b, question 25, PDF page 6"
+    "explanation": "Correct answer: A — labels identify memory addresses used by instructions.\n\nA label is an assembler symbol associated with the address of the following instruction or data item. Branch and jump instructions can refer to the label, and the assembler or linker calculates the corresponding encoded address. A label is not itself a machine instruction and does not cause the CPU to perform an operation.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 25, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q26",
@@ -877,7 +842,14 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Work RAM\nSource: official answer key\nOrigin: w23-final-b, question 26, PDF page 6"
+    "explanation": "Correct answer: B — Work RAM.\n\nProgram variables normally need to be read and modified while the game runs, so they belong in writable Work RAM. ROM contains the program and fixed data and is not ordinary writable storage. Video RAM is intended for graphics data and also has access restrictions while the PPU is active, so it is not the normal location for general variables.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 26, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "game-boy",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q27",
@@ -903,7 +875,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: Simplified object management\nSource: official answer key\nOrigin: w23-final-b, question 27, PDF page 7"
+    "explanation": "Correct answer: C — simplified object management.\n\nA metaobject represents a larger logical object as a structured group of smaller drawable pieces, such as multiple tiles or sprites. Code can then create, move, or update the logical object through one description instead of managing every component independently. This primarily improves organization and maintainability; increased visibility is unrelated, and reduced CPU usage is not guaranteed in every implementation.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 27, PDF page 7",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q28",
@@ -929,7 +907,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: They are interleaved throughout the file.\nSource: official answer key\nOrigin: w23-final-b, question 28, PDF page 7"
+    "explanation": "Correct answer: A — instructions and data may be interleaved.\n\nAt the hardware level, the final ROM is simply a collection of bytes at addresses. The CPU interprets bytes as instructions only when the Program Counter reaches them; the same ROM can also contain constants, graphics, tables, and other data between code regions. There is no hardware rule requiring all instructions to precede all data or vice versa.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 28, PDF page 7",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q29",
@@ -955,12 +939,18 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: Unrolling the code 10 times manually\nSource: official answer key\nOrigin: w23-final-b, question 29, PDF page 7"
+    "explanation": "Correct answer: C — manually unrolling the code is fastest among the listed choices.\n\nA loop executes counter updates, condition checks, and branch instructions on each repetition. Unrolling duplicates the loop body ten times, removing that repeated control-flow overhead and normally giving the shortest execution time. The trade-off is a larger program; recursion adds call, return, and stack overhead and is slower here.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 29, PDF page 7",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q30",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "In a typical GBZ80 assembly program, how does code size generally affect execution speed?",
@@ -981,7 +971,15 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Smaller code is usually faster.\nSource: official answer key\nOrigin: w23-final-b, question 30, PDF page 7"
+    "explanation": "Correct answer: B — smaller code is usually faster.\n\nSmaller GBz80 code often performs fewer instructions, fewer branches, or less bookkeeping, so it commonly takes fewer cycles. However, the relationship is not absolute: unrolling, lookup tables, or specialized instruction sequences can increase code size while improving speed. The qualified word “usually” makes option B correct, whereas “always” is too strong.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 30, PDF page 7",
+    "tags": [
+      "assembly-tracing",
+      "cycle-counting",
+      "gbz80",
+      "lut",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q31",
@@ -1020,7 +1018,14 @@
     "correctOptionIds": [
       "F"
     ],
-    "explanation": "Answer: A==01, B==05\nSource: official answer key\nOrigin: w23-final-b, question 31, PDF page 8"
+    "explanation": "Correct answer: F — A = 0x01 and B = 0x05.\n\n`XOR A` clears A, and the next two loads clear B and C. After `LD HL,0x0101`, `INC C` makes BC = 0x0001 and `INC BC` makes BC = 0x0002. Adding BC to HL twice changes HL from 0x0101 to 0x0103 and then 0x0105. `LD B,L` therefore sets B to 0x05, and `ADD H` adds H = 0x01 to A = 0, leaving A = 0x01.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 31, PDF page 8",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q32",
@@ -1051,12 +1056,19 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: A * (2^B)\nSource: official answer key\nOrigin: w23-final-b, question 32, PDF page 8"
+    "explanation": "Correct answer: A — A multiplied by 2 to the power B.\n\nThe bytes decode as `LD H,0`, `LD L,A`, `ADD HL,HL`, `DEC B`, `JR NZ` back to the doubling instruction, and `RET`. The first two instructions place the original value of A into HL. Each loop iteration doubles HL, and the loop executes B times for a positive initial B. The returned 16-bit result is therefore A × 2ᴮ.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 32, PDF page 8",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q33",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "code",
     "prompt": "Assuming BC > 0, what is the total number of cycles of this code, expressed as a function of BC?",
@@ -1090,12 +1102,20 @@
     "correctOptionIds": [
       "D"
     ],
-    "explanation": "Answer: 52 * BC + 12\nSource: official answer key\nOrigin: w23-final-b, question 33, PDF page 9"
+    "explanation": "Correct answer: D — 52 × BC + 12 cycles.\n\nFor each non-final iteration, the instructions cost 8 + 8 + 8 + 8 + 4 + 4 + 12 = 52 cycles because `JR NZ` is taken. On the final iteration, the same body uses an 8-cycle untaken jump, after which `RET` costs 16 cycles; that final part is 8 + 8 + 8 + 8 + 4 + 4 + 8 + 16 = 64 cycles. For N = BC iterations, the total is 52(N − 1) + 64 = 52N + 12.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 33, PDF page 9",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "cycle-counting",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q34",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "code",
     "prompt": "Consider the following code snippet. What is the total number of cycles of this code?",
@@ -1129,7 +1149,15 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: 2412\nSource: official answer key\nOrigin: w23-final-b, question 34, PDF page 9"
+    "explanation": "Correct answer: A — 2412 cycles.\n\nThe two setup loads cost 8 + 8 = 16 cycles. The loop body `LD [HL+],A` and `DEC B` costs 8 + 4 = 12 cycles for each of 100 iterations. `JR NZ` is taken 99 times at 12 cycles and not taken once at 8 cycles. The total is 16 + 100×12 + 99×12 + 8 = 2412 cycles.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 34, PDF page 9",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "cycle-counting",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q35",
@@ -1156,7 +1184,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: `PUSH AF ; LD A,[DE] ; LD B,A ; POP AF`\nSource: official answer key\nOrigin: w23-final-b, question 35, PDF page 10"
+    "explanation": "Correct answer: C — save AF, load through A, copy to B, and restore AF.\n\nThe GBz80 cannot load B directly from the address in DE, but it can execute `LD A,[DE]`. Because A already contains the value read from `[HL]` and is needed later for the swap, AF must first be preserved with `PUSH AF`. After `LD A,[DE]` and `LD B,A`, `POP AF` restores the original A and flags, so the function continues with the intended values.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 35, PDF page 10",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q36",
@@ -1182,7 +1217,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Replace them by RET NC\nSource: official answer key\nOrigin: w23-final-b, question 36, PDF page 10"
+    "explanation": "Correct answer: B — replace the jump and following return with `RET NC`.\n\nThe original code jumps to `swap_numbers` when the carry flag is set by `CP B`; when carry is clear, it falls through to `RET`. The same behavior is obtained by placing `RET NC` before `swap_numbers`: carry clear returns immediately, while carry set does not return and falls through into the swap code. This reduces the control-flow sequence without changing its logic.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 36, PDF page 10",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q37",
@@ -1208,7 +1249,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: `LD A,[variable] ; OR A ; JP Z, .zero`\nSource: official answer key\nOrigin: w23-final-b, question 37, PDF page 10"
+    "explanation": "Correct answer: A.\n\n`LD A,[variable]` loads the byte from the absolute address, `OR A` tests A without changing its value and sets Z when A is zero, and `JP Z,.zero` performs the conditional jump. Their sizes are 3, 1, and 3 bytes, for a total of 7 bytes. Using `OR 0` requires a 2-byte immediate instruction and is therefore larger, while a direct `OR [variable]` instruction does not exist on the GBz80.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 37, PDF page 10",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q38",
@@ -1239,7 +1286,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: A\nSource: official answer key\nOrigin: w23-final-b, question 38, PDF page 11"
+    "explanation": "Correct answer: C — register A.\n\n`CP [HL]` performs a comparison equivalent to A minus the byte pointed to by HL, updating flags without storing the subtraction result. Therefore, A contains the target value being searched for. HL points to the current list element, and B is used as the remaining-element counter.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 38, PDF page 11",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q39",
@@ -1266,7 +1320,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: By returning a specific value in HL\nSource: official answer key\nOrigin: w23-final-b, question 39, PDF page 11"
+    "explanation": "Correct answer: C — by returning a specific value in HL.\n\nIf `CP [HL]` finds a match, `RET Z` returns immediately while HL still points to the matching element. If the loop ends without a match, the function executes `LD HL,-1` before returning. Thus, the caller can distinguish success from failure by testing whether HL is a valid matching address or the sentinel value −1.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 39, PDF page 11",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w23-final-b-q40",
@@ -1297,7 +1358,14 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: HL\nSource: official answer key\nOrigin: w23-final-b, question 40, PDF page 11"
+    "explanation": "Correct answer: A — HL.\n\nHL is dereferenced by `CP [HL]`, so it points to the current list element. After an unsuccessful comparison, `INC HL` advances the pointer to the next byte. B counts how many elements remain, while A holds the target value.\n\nAnswer source: official answer key\nOrigin: w23-final-b, question 40, PDF page 11",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "s24-exam-a-q05",
@@ -1335,12 +1403,18 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: JP label\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 5, PDF page 11"
+    "explanation": "Correct answer: C — `JP label`.\n\nA jump instruction changes the Program Counter to the address represented by `label`, directly altering the next instruction to execute. The other instructions operate on registers, memory, flags, or the stack but do not explicitly transfer control to a new code address. Therefore, `JP label` is the direct PC-changing instruction.\n\nAnswer source: teacher-checked answer\nOrigin: s24-exam-a, question 5, PDF page 11",
+    "tags": [
+      "game-boy",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "s24-exam-a-q06",
     "topic": "GBz80 Architecture",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "In GBz80 architecture, a routine must always execute as its last instruction:",
@@ -1373,7 +1447,13 @@
     "correctOptionIds": [
       "E"
     ],
-    "explanation": "Answer: RET\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 6, PDF page 13"
+    "explanation": "Correct answer: E — `RET`.\n\nUnder the normal calling convention taught for GBz80 routines, `CALL` pushes a return address and transfers control to the routine. The routine ends with `RET`, which pops that saved address into the Program Counter and resumes the caller. The other listed instructions may occur inside a routine but do not generally complete the return operation.\n\nAnswer source: teacher-checked answer\nOrigin: s24-exam-a, question 6, PDF page 13",
+    "tags": [
+      "game-boy",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "s24-exam-a-q08",
@@ -1412,7 +1492,14 @@
     "correctOptionIds": [
       "E"
     ],
-    "explanation": "Answer: To copy a block of memory from one location to another.\nSource: teacher-checked answer\nOrigin: s24-exam-a, question 8, PDF page 17"
+    "explanation": "Correct answer: E — copy a block of memory from one location to another.\n\n`LD A,[DE]` reads one source byte, and `INC DE` advances the source pointer. `LDI [HL],A` writes the byte to the destination and increments HL. BC is decremented as a 16-bit count, and `LD A,B` followed by `OR C` tests whether BC has reached zero. The loop therefore copies BC bytes from the region beginning at DE to the region beginning at HL.\n\nAnswer source: teacher-checked answer\nOrigin: s24-exam-a, question 8, PDF page 17",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q01",
@@ -1438,7 +1525,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: 3\nSource: official answer key\nOrigin: w24-exam-a, question 1, PDF page 2"
+    "explanation": "Correct answer: C — 3 bits.\n\nA binary state register with k bits can represent 2ᵏ states. Two bits represent only four states, so they cannot encode all five states. Three bits represent eight possible codes and are sufficient, making 3 the minimum.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 1, PDF page 2",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q02",
@@ -1464,7 +1557,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: states 4\nSource: official answer key\nOrigin: w24-exam-a, question 2, PDF page 2"
+    "explanation": "Correct answer: B — 4 states.\n\nA sequence recognizer must remember how much of the target pattern has already been matched. For the pattern 101, the useful progress states are: no relevant prefix matched, prefix `1` matched, prefix `10` matched, and the complete sequence `101` recognized. These four distinct situations require four states in the intended FSM model.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 2, PDF page 2",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q03",
@@ -1498,7 +1597,15 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: A is TRUE followed by B is TRUE.\nSource: official answer key\nOrigin: w24-exam-a, question 3, PDF page 2"
+    "explanation": "Correct answer: B — A is TRUE followed by B being TRUE.\n\nAfter reset, the two state bits are 00 and Q is the state bit S1. A TRUE input drives the next-state logic so that S0 becomes 1 on the next clock edge, recording that A has been observed. On the following cycle, B TRUE together with S0 = 1 causes S1 to become 1, so Q is asserted. The remaining next-state logic then removes that state, making Q TRUE for only one clock cycle.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 3, PDF page 2",
+    "tags": [
+      "cycle-counting",
+      "diagram",
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q04",
@@ -1532,7 +1639,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: 200ps\nSource: official answer key\nOrigin: w24-exam-a, question 4, PDF page 2"
+    "explanation": "Correct answer: B — 200 ps.\n\nThe setup-time constraint is Tc ≥ tpcq + tpd(combinational) + tsetup. The longest register-to-register path in the shown circuit passes through one logic gate, so Tc ≥ 60 ps + 90 ps + 50 ps = 200 ps. The contamination and hold-time values are used for the separate hold constraint and do not increase this minimum clock period.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 4, PDF page 2",
+    "tags": [
+      "fsm",
+      "past-exam",
+      "sequential-logic"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q05",
@@ -1558,7 +1671,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Process carry-in signals.\nSource: official answer key\nOrigin: w24-exam-a, question 5, PDF page 3"
+    "explanation": "Correct answer: B — process a carry-in signal.\n\nA half adder adds two one-bit inputs and produces a sum and carry-out. A full adder adds three one-bit inputs: the two operand bits plus a carry-in from the previous, less-significant stage. This carry-in capability allows full adders to be chained to form multi-bit adders.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 5, PDF page 3",
+    "tags": [
+      "alu",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q06",
@@ -1584,7 +1703,13 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: 2 control signals.\nSource: official answer key\nOrigin: w24-exam-a, question 6, PDF page 3"
+    "explanation": "Correct answer: A — 2 control signals.\n\nThe ALU must distinguish four operations. Two binary control bits provide four unique codes, so they can select addition, subtraction, AND, or OR. Three or four control bits would provide more codes than are required for this set.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 6, PDF page 3",
+    "tags": [
+      "alu",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q07",
@@ -1610,7 +1735,14 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: Multiplication\nSource: official answer key\nOrigin: w24-exam-a, question 7, PDF page 3"
+    "explanation": "Correct answer: B — multiplication.\n\nThe Game Boy CPU directly supports subtraction and bitwise exclusive OR through ALU instructions. It has no hardware multiply instruction in the GBz80 instruction set. Multiplication must therefore be constructed in software, for example with repeated addition or shift-and-add algorithms.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 7, PDF page 3",
+    "tags": [
+      "alu",
+      "game-boy",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q08",
@@ -1636,7 +1768,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: RAM\nSource: official answer key\nOrigin: w24-exam-a, question 8, PDF page 3"
+    "explanation": "Correct answer: C — RAM.\n\nThe current time is a value that changes as the circuit operates, so the storage must be writable. RAM or registers can preserve and update this state. ROM is fixed during normal use, and the ALU computes values rather than storing persistent state.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 8, PDF page 3",
+    "tags": [
+      "alu",
+      "memory",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q09",
@@ -1662,7 +1800,14 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: variable-length (depends on the instruction)\nSource: official answer key\nOrigin: w24-exam-a, question 9, PDF page 3"
+    "explanation": "Correct answer: A — variable length.\n\nGBz80 machine instructions do not all occupy the same number of bytes. Simple register-to-register operations are often one byte, while instructions with 8-bit immediates, 16-bit immediates, addresses, or a CB prefix require additional bytes. Therefore, instruction size depends on the particular instruction and operands.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 9, PDF page 3",
+    "tags": [
+      "cisc",
+      "gbz80",
+      "microinstructions",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q10",
@@ -1688,7 +1833,15 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: CALL LABEL\nSource: official answer key\nOrigin: w24-exam-a, question 10, PDF page 3"
+    "explanation": "Correct answer: B — `CALL LABEL`.\n\n`CALL` must obtain the target address, calculate the return address, decrement the stack pointer, write the return address to the stack, and load the target into the Program Counter. These actions require more internal micro-operations than `JP HL`, which mainly replaces the PC from HL, or `LD [HL],A`, which performs a single memory write. Hence `CALL LABEL` has the largest microinstruction sequence among the choices.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 10, PDF page 3",
+    "tags": [
+      "cisc",
+      "game-boy",
+      "gbz80",
+      "microinstructions",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q11",
@@ -1714,7 +1867,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: The use of the stack.\nSource: official answer key\nOrigin: w24-exam-a, question 11, PDF page 3"
+    "explanation": "Correct answer: C — use of the stack.\n\nBoth `JP label` and `CALL label` transfer control to another address. `CALL`, however, first saves the return address on the stack so that a later `RET` can resume the caller. A plain `JP` does not save a return address, so the stack use is the key difference.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 11, PDF page 3",
+    "tags": [
+      "cisc",
+      "gbz80",
+      "microinstructions",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q12",
@@ -1740,7 +1900,14 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Using 3-bit codes in the opcode\nSource: official answer key\nOrigin: w24-exam-a, question 12, PDF page 4"
+    "explanation": "Correct answer: A — 3-bit register codes in the opcode.\n\nThe GBz80 encodes the source and destination of an `LD r,r` instruction inside the opcode. Each operand uses a 3-bit code, enough for the eight encoded register or `[HL]` choices. Consequently, these instructions do not need separate bytes to identify the registers.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 12, PDF page 4",
+    "tags": [
+      "cisc",
+      "gbz80",
+      "microinstructions",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q13",
@@ -1766,7 +1933,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: JR \\$ra\nSource: official answer key\nOrigin: w24-exam-a, question 13, PDF page 4"
+    "explanation": "Correct answer: B — `JR ra`.\n\nThe MIPS calling convention stores the return address in register `ra`. The instruction `JR ra` copies that address into the Program Counter, returning control to the caller. `JR sp` would jump to the stack address, and `LW ra,0(sp)` only restores a saved return address without performing the jump.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 13, PDF page 4",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q14",
@@ -1792,7 +1965,13 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: 4 bytes\nSource: official answer key\nOrigin: w24-exam-a, question 14, PDF page 4"
+    "explanation": "Correct answer: C — 4 bytes.\n\nClassic MIPS uses a fixed-width 32-bit instruction encoding. Since 32 bits equal 4 bytes, every ordinary MIPS instruction occupies four bytes, regardless of whether it is R-type, I-type, or J-type. This fixed length simplifies instruction fetch and decoding.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 14, PDF page 4",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q15",
@@ -1818,12 +1997,19 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Execute\nSource: official answer key\nOrigin: w24-exam-a, question 15, PDF page 4"
+    "explanation": "Correct answer: A — Execute.\n\nThe fetch stage reads the instruction, and the decode stage interprets it and obtains operand values. The execute stage sends the operands through the ALU to perform arithmetic, logic, address calculation, or a branch comparison. Therefore, the actual arithmetic or logical operation occurs in Execute.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 15, PDF page 4",
+    "tags": [
+      "cycle-counting",
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q16",
     "topic": "MIPS architecture and microarchitecture",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "What is the primary advantage of using a multi-cycle microarchitecture over a single-cycle approach?",
@@ -1844,7 +2030,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: Using a single memory for instructions and data\nSource: official answer key\nOrigin: w24-exam-a, question 16, PDF page 4"
+    "explanation": "Correct answer: C — a single memory can be reused for instructions and data.\n\nA single-cycle processor may need instruction memory and data memory at the same time within one long clock cycle. A multi-cycle design separates instruction fetch and data access into different cycles, so the same memory hardware can be reused at different times. This reduces duplicated hardware, although the controller itself generally becomes more involved rather than simpler.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 16, PDF page 4",
+    "tags": [
+      "cycle-counting",
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q17",
@@ -1870,7 +2063,13 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: To fetch instructions from memory\nSource: official answer key\nOrigin: w24-exam-a, question 17, PDF page 4"
+    "explanation": "Correct answer: B — receive and hold the fetched instruction.\n\nDuring the fetch stage, the instruction read from memory is loaded into the Instruction Register. The IR then keeps that instruction stable while later stages decode and execute it. Strictly speaking, memory and the datapath perform the read, but among the choices “fetch instructions from memory” is the intended description; arithmetic results belong elsewhere, and the next-instruction address belongs in the Program Counter.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 17, PDF page 4",
+    "tags": [
+      "microarchitecture",
+      "mips",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q18",
@@ -1909,7 +2108,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: A==4, B==2\nSource: official answer key\nOrigin: w24-exam-a, question 18, PDF page 5"
+    "explanation": "Correct answer: C — A = 4 and B = 2.\n\nThe first instructions set A = 1, B = 2, and C = A = 1. `ADD B` makes A = 1 + 2 = 3, and `ADD C` then makes A = 3 + 1 = 4. `INC BC` increments the 16-bit pair from 0x0201 to 0x0202, so B remains 2 while C changes from 1 to 2.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 18, PDF page 5",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q19",
@@ -1939,12 +2145,18 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: 80\nSource: official answer key\nOrigin: w24-exam-a, question 19, PDF page 5"
+    "explanation": "Correct answer: A — opcode 0x80.\n\nThe GBz80 `ADD A,r` opcodes form a consecutive block beginning at 0x80. The register code for B is 000, so `ADD A,B` uses the first opcode, 0x80. The following values correspond to other source registers, such as 0x81 for C, 0x82 for D, and 0x83 for E.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 19, PDF page 5",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q20",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "code",
     "prompt": "Assuming BC > 0, what is the total number of cycles of this code, expressed as a function of BC?",
@@ -1978,7 +2190,15 @@
     "correctOptionIds": [
       "F"
     ],
-    "explanation": "Answer: 52 * BC + 12\nSource: official answer key\nOrigin: w24-exam-a, question 20, PDF page 5"
+    "explanation": "Correct answer: F — 52 × BC + 12 cycles.\n\nA taken iteration costs 8 (`LD A,[DE]`) + 8 (`LD [HLI],A`) + 8 (`INC DE`) + 8 (`DEC BC`) + 4 (`LD A,B`) + 4 (`OR C`) + 12 (`JR NZ` taken) = 52 cycles. On the last iteration the jump is not taken and costs 8 cycles, after which `RET` costs 16, making the final iteration plus return 64 cycles. Thus, for N initial iterations, 52(N − 1) + 64 = 52N + 12.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 20, PDF page 5",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "cycle-counting",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q21",
@@ -2013,7 +2233,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: D\nSource: official answer key\nOrigin: w24-exam-a, question 21, PDF page 6\nNote: The byte sequence decodes to XOR A; LD B,A; LD C,A; LD A,[HL+]; ADD C; JR NC,+1; INC B; LD C,A; DEC D; JR NZ,-9; RET."
+    "explanation": "Correct answer: C — register D controls the number of loop repetitions.\n\nThe bytes decode to `XOR A; LD B,A; LD C,A; LD A,[HL+]; ADD C; JR NC,+1; INC B; LD C,A; DEC D; JR NZ,-9; RET`. The backward `JR NZ` tests the zero flag produced by `DEC D`, so the loop repeats until D reaches zero. HL advances through the data, while B and C accumulate the multi-byte result, but D is the loop counter.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 21, PDF page 6\nNote: The byte sequence decodes to XOR A; LD B,A; LD C,A; LD A,[HL+]; ADD C; JR NC,+1; INC B; LD C,A; DEC D; JR NZ,-9; RET.",
+    "tags": [
+      "assembly-tracing",
+      "code-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q22",
@@ -2039,12 +2266,19 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: Work RAM\nSource: official answer key\nOrigin: w24-exam-a, question 22, PDF page 6"
+    "explanation": "Correct answer: A — Work RAM.\n\nA variable is expected to change while the program is running, so its label should refer to writable Work RAM. ROM is suitable for code and constants but not normal mutable variables. Video RAM is reserved for graphics-related data and is subject to PPU access restrictions.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 22, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "game-boy",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q23",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "To create a loop that repeats a section of code until a specific condition is met, which control flow construct would be most appropriate?",
@@ -2065,12 +2299,18 @@
     "correctOptionIds": [
       "B"
     ],
-    "explanation": "Answer: JR NZ, label\nSource: official answer key\nOrigin: w24-exam-a, question 23, PDF page 6"
+    "explanation": "Correct answer: B — `JR NZ,label`.\n\nA loop needs a conditional control transfer back to its beginning. After the loop body updates a counter or flags, `JR NZ,label` repeats the body while the zero condition is false and exits when the condition is met. `JP label` is unconditional and would not terminate by itself, while `CALL label` is intended for invoking a subroutine and adds stack overhead.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 23, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q24",
     "topic": "GBz80 Assembly",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "single",
     "contentType": "text",
     "prompt": "Which of the following instructions takes the most cycles to execute?",
@@ -2091,7 +2331,14 @@
     "correctOptionIds": [
       "C"
     ],
-    "explanation": "Answer: CALL label\nSource: official answer key\nOrigin: w24-exam-a, question 24, PDF page 6"
+    "explanation": "Correct answer: C — `CALL label`.\n\n`NOP` and `LD A,B` are simple one-byte operations that each take 4 clock cycles on the GBz80. `CALL label` must fetch a 16-bit target, save the return address on the stack, update the stack pointer, and load the Program Counter, taking 24 cycles. It is therefore the slowest of the three choices.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 24, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "cycle-counting",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
   },
   {
     "id": "w24-exam-a-q25",
@@ -2117,6 +2364,360 @@
     "correctOptionIds": [
       "A"
     ],
-    "explanation": "Answer: LD A,[variable] ; OR A ; JP Z, .zero\nSource: official answer key\nOrigin: w24-exam-a, question 25, PDF page 6"
+    "explanation": "Correct answer: A.\n\n`LD A,[variable]` loads the memory byte, `OR A` sets the zero flag according to that byte without changing it, and `JP Z,.zero` branches when the value is zero. The sequence occupies 3 + 1 + 3 = 7 bytes. `OR 0` is a larger immediate instruction, and the GBz80 has no instruction that directly performs `OR [variable]` using an arbitrary absolute address.\n\nAnswer source: official answer key\nOrigin: w24-exam-a, question 25, PDF page 6",
+    "tags": [
+      "assembly-tracing",
+      "gbz80",
+      "past-exam"
+    ],
+    "sourceType": "past-exam"
+  },
+  {
+    "id": "self-test-gbz80-flags-001",
+    "topic": "GBz80 Assembly",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "assembly-tracing",
+      "flags",
+      "code-tracing"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 10 and 23.",
+    "difficulty": "hard",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "For the GBz80 snippet below, which statement is correct immediately before ADC B executes?",
+    "code": "LD A,5\nLD B,10\nCP B\nJR C,.less\nDEC A\nJR .done\n.less:\n    INC A\n.done:\n    ADC B",
+    "options": [
+      {
+        "id": "A",
+        "label": "A = 6 and the carry flag is still set, so ADC B produces 17."
+      },
+      {
+        "id": "B",
+        "label": "A = 6 but CP clears carry, so ADC B produces 16."
+      },
+      {
+        "id": "C",
+        "label": "A = 4 and the carry flag is clear, so ADC B produces 14."
+      },
+      {
+        "id": "D",
+        "label": "CP changes A to -5, so the branch result is undefined."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. CP B compares A with B by computing A - B for flags only; it does not modify A. Since 5 < 10, the carry flag is set as a borrow indicator on the SM83/GBz80, so JR C is taken. INC A changes A from 5 to 6 and does not clear the carry flag. ADC B then computes A + B + carry = 6 + 10 + 1 = 17. The common trap is to treat CP as a destructive subtraction or to forget that ADC consumes the previous carry flag."
+  },
+  {
+    "id": "self-test-cycle-count-001",
+    "topic": "GBz80 Assembly",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "cycle-counting",
+      "assembly-tracing"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 10, 15, and 23.",
+    "difficulty": "hard",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "Assume LD A,n costs 8 cycles, LD B,n costs 8 cycles, DEC B costs 4 cycles, JR NZ costs 12 cycles when taken and 8 cycles when not taken, and RET costs 16 cycles. What is the total cycle count?",
+    "code": "LD A,0\nLD B,3\n.loop:\n    DEC B\n    JR NZ,.loop\nRET",
+    "options": [
+      {
+        "id": "A",
+        "label": "44 cycles"
+      },
+      {
+        "id": "B",
+        "label": "52 cycles"
+      },
+      {
+        "id": "C",
+        "label": "68 cycles"
+      },
+      {
+        "id": "D",
+        "label": "76 cycles"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Correct answer: D. The two setup instructions cost 8 + 8 = 16 cycles. The loop runs three times because B starts at 3 and DEC B reaches 2, 1, then 0. The first two JR NZ instructions are taken, costing 12 cycles each; the final one is not taken, costing 8 cycles. The loop body therefore costs 3 × 4 + 2 × 12 + 8 = 44 cycles. Adding RET gives 16 + 44 + 16 = 76 cycles. The common exam trap is to charge the final conditional jump as taken."
+  },
+  {
+    "id": "self-test-fsm-bits-001",
+    "topic": "Finite State Machines (FSM)",
+    "tags": [
+      "self-test",
+      "fsm",
+      "sequential-logic",
+      "state-encoding"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 6.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A sequence detector has 7 reachable states after unreachable states are removed. What is the minimum number of flip-flops needed for binary state encoding?",
+    "options": [
+      {
+        "id": "A",
+        "label": "2"
+      },
+      {
+        "id": "B",
+        "label": "3"
+      },
+      {
+        "id": "C",
+        "label": "7"
+      },
+      {
+        "id": "D",
+        "label": "8"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer: B. Binary state encoding with k flip-flops can represent 2^k states. Two flip-flops represent only 4 states, which is insufficient for 7 reachable states. Three flip-flops represent 8 possible encodings, enough for all reachable states. The fact that one of the 8 encodings remains unused is normal; the minimum is ceil(log2 7) = 3, not 7 flip-flops as in one-hot encoding."
+  },
+  {
+    "id": "self-test-kmap-001",
+    "topic": "Boolean Algebra and K-map",
+    "tags": [
+      "self-test",
+      "boolean-algebra",
+      "k-map",
+      "sop"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 4.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a 3-variable K-map for F(A,B,C), the 1-cells are minterms m0, m1, m2, and m3. Which simplified SOP is correct?",
+    "options": [
+      {
+        "id": "A",
+        "label": "$\\overline{A}$"
+      },
+      {
+        "id": "B",
+        "label": "$A$"
+      },
+      {
+        "id": "C",
+        "label": "$\\overline{B}\\overline{C}$"
+      },
+      {
+        "id": "D",
+        "label": "$B + C$"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. For three variables ordered as ABC, minterms m0 through m3 are 000, 001, 010, and 011. Across these four cells, A is always 0 while B and C vary through all combinations. A K-map group of four therefore eliminates B and C and leaves only A complemented, giving F = A̅. The key simplification rule is to keep variables that remain constant inside the group and drop variables that change."
+  },
+  {
+    "id": "self-test-mips-branch-001",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "tags": [
+      "self-test",
+      "mips",
+      "branch-addressing",
+      "instruction-encoding"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 18.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "For a MIPS beq instruction at address 0x00400020 with immediate offset 3, what branch target address is used if the branch is taken?",
+    "options": [
+      {
+        "id": "A",
+        "label": "0x00400023"
+      },
+      {
+        "id": "B",
+        "label": "0x0040002C"
+      },
+      {
+        "id": "C",
+        "label": "0x00400030"
+      },
+      {
+        "id": "D",
+        "label": "0x00400034"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer: C. MIPS branch targets are PC-relative using PC + 4 plus the sign-extended immediate shifted left by two bits. The next sequential PC is 0x00400024. The immediate 3 means 3 instruction words, or 12 bytes. Therefore the target is 0x00400024 + 0xC = 0x00400030. The common mistake is to add 3 bytes directly to the current PC."
+  },
+  {
+    "id": "self-test-pipeline-load-use-001",
+    "topic": "Pipelined MIPS",
+    "tags": [
+      "self-test",
+      "mips",
+      "pipeline",
+      "load-use",
+      "hazards"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 21.",
+    "difficulty": "hard",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "In a standard 5-stage MIPS pipeline with forwarding, what extra action is required for this pair of instructions?",
+    "code": "lw  $t0, 0($t1)\nadd $t2, $t0, $t3",
+    "options": [
+      {
+        "id": "A",
+        "label": "No action is needed because forwarding always solves RAW hazards."
+      },
+      {
+        "id": "B",
+        "label": "Insert one stall/bubble before the add can use the loaded value."
+      },
+      {
+        "id": "C",
+        "label": "Flush the add because it is on the wrong control-flow path."
+      },
+      {
+        "id": "D",
+        "label": "Rewrite the lw as an R-type instruction."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer: B. This is the classic load-use hazard. The lw data is not available until the end of the MEM stage, but the immediately following add needs the operand at the start of its EX stage. Ordinary forwarding cannot deliver the value early enough, so the hazard unit stalls the pipeline for one cycle and injects a bubble. Forwarding can then supply the loaded value to the add in the following cycle."
+  },
+  {
+    "id": "self-test-memory-map-001",
+    "topic": "Game Boy Memory Map",
+    "tags": [
+      "self-test",
+      "game-boy",
+      "memory",
+      "vram",
+      "wram"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 16.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Where should an ordinary mutable gameplay variable normally be placed in a Game Boy program?",
+    "options": [
+      {
+        "id": "A",
+        "label": "ROM, because labels are resolved by the linker."
+      },
+      {
+        "id": "B",
+        "label": "VRAM, because the PPU can display it."
+      },
+      {
+        "id": "C",
+        "label": "Work RAM, because it is writable during gameplay."
+      },
+      {
+        "id": "D",
+        "label": "OAM, because it stores all program state."
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer: C. A mutable gameplay variable must be stored in writable memory, so Work RAM is the normal place for it. ROM is for code and fixed data; it is not ordinary writable storage at runtime. VRAM is for graphics data and has PPU access restrictions, while OAM is specifically for sprite/object attributes. This distinction appears repeatedly in Game Boy programming questions."
+  },
+  {
+    "id": "self-test-timing-001",
+    "topic": "Sequential Timing",
+    "tags": [
+      "self-test",
+      "sequential-logic",
+      "timing",
+      "setup-time"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 5.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A register-to-register path has t_pcq = 70 ps, combinational t_pd = 180 ps, and t_setup = 50 ps. What is the minimum safe clock period from the setup constraint?",
+    "options": [
+      {
+        "id": "A",
+        "label": "180 ps"
+      },
+      {
+        "id": "B",
+        "label": "230 ps"
+      },
+      {
+        "id": "C",
+        "label": "300 ps"
+      },
+      {
+        "id": "D",
+        "label": "3.33 ps"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer: C. The setup constraint for a register-to-register path is T_c >= t_pcq + t_pd(combinational) + t_setup. Substituting the values gives T_c >= 70 ps + 180 ps + 50 ps = 300 ps. The clock period must be at least this long so that launched data can propagate through the logic and meet setup time at the receiving register. Hold time is checked with a separate shortest-path constraint and is not solved by increasing the period."
+  },
+  {
+    "id": "self-test-twos-complement-001",
+    "topic": "Number Representation",
+    "tags": [
+      "self-test",
+      "number-representation",
+      "two-complement",
+      "overflow"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 2.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In 8-bit two's-complement arithmetic, what happens when 0x7F and 0x01 are added?",
+    "options": [
+      {
+        "id": "A",
+        "label": "The result is 0x80, representing -128, and signed overflow occurs."
+      },
+      {
+        "id": "B",
+        "label": "The result is 0x80, representing +128, with no signed overflow."
+      },
+      {
+        "id": "C",
+        "label": "The result is 0x00 because all overflow bits are discarded."
+      },
+      {
+        "id": "D",
+        "label": "The operation is invalid because positive and negative numbers cannot be added."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. In 8-bit arithmetic, 0x7F is the largest positive two's-complement value, +127. Adding 0x01 gives the bit pattern 0x80 after truncation to 8 bits. That bit pattern represents -128 in two's complement. Since two positive operands produced a negative result, signed overflow occurred. This is separate from unsigned carry interpretation."
   }
 ]
