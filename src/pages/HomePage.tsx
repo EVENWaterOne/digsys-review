@@ -1,4 +1,4 @@
-import { ALL_TAGS, getAllTags, questions } from "../lib/questions";
+import { ALL_TAGS, getAllTags, getQuestionSourceCounts, questions } from "../lib/questions";
 import { getState } from "../lib/storage";
 import type { RouteKey } from "../routing";
 
@@ -9,10 +9,12 @@ interface HomePageProps {
 export function HomePage({ onNavigate }: HomePageProps) {
   const state = getState();
   const tags = getAllTags();
+  const sourceCounts = getQuestionSourceCounts();
   const practiceProgress = state.practiceProgress;
   const completedPracticeCount = practiceProgress?.completedQuestionIds?.length ?? 0;
   const practiceTotal = practiceProgress?.questionOrder?.length ?? questions.length;
   const practiceTag = practiceProgress?.activeTag === ALL_TAGS || !practiceProgress?.activeTag ? "全部标签" : practiceProgress.activeTag;
+  const practiceSource = sourceLabel[practiceProgress?.sourceFilter ?? "past-exam"];
 
   return (
     <section className="page-stack">
@@ -39,7 +41,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div>
             <span>已保存练习进度</span>
             <strong>
-              {practiceTag} · 本轮 {completedPracticeCount} / {practiceTotal}
+              {practiceSource} · {practiceTag} · 本轮 {completedPracticeCount} / {practiceTotal}
             </strong>
           </div>
           <button className="secondary-button" onClick={() => onNavigate("practice")} type="button">
@@ -50,8 +52,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
       <div className="stat-grid">
         <div className="stat-card">
-          <span>题目数量</span>
+          <span>题目总数</span>
           <strong>{questions.length}</strong>
+        </div>
+        <div className="stat-card">
+          <span>历年题</span>
+          <strong>{sourceCounts.pastExam}</strong>
+        </div>
+        <div className="stat-card">
+          <span>自出题</span>
+          <strong>{sourceCounts.selfTest}</strong>
         </div>
         <div className="stat-card">
           <span>错题数量</span>
@@ -71,3 +81,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
     </section>
   );
 }
+
+const sourceLabel = {
+  "past-exam": "只做历年题",
+  mixed: "历年题 + 自出题",
+  "self-test": "只做自出题",
+};

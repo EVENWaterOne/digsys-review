@@ -2,15 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import { QuestionCard } from "../components/QuestionCard";
 import {
   ALL_TAGS,
+  DEFAULT_PRACTICE_ROUND_SIZE,
   buildBalancedQuestionOrder,
-  getAllTags,
+  getQuestionSourceCounts,
   getQuestionById,
-  getQuestionsByTag,
+  getQuestionsForPractice,
+  getTagsForSource,
   isUsableQuestionOrder,
-  questions,
 } from "../lib/questions";
 import { loadPracticeProgress, recordAttempt, savePracticeProgress } from "../lib/storage";
-import type { Question } from "../types";
+import type { PracticeSourceFilter, Question } from "../types";
 import type { RouteKey } from "../routing";
 
 interface PracticePageProps {
@@ -20,9 +21,14 @@ interface PracticePageProps {
 export function PracticePage({ onNavigate }: PracticePageProps) {
   const storedProgress = loadPracticeProgress();
   const initialTag = getSafeInitialTag(storedProgress?.activeTag);
+  const initialSourceFilter = getSafeInitialSourceFilter(storedProgress?.sourceFilter);
   const [activeTag, setActiveTag] = useState(initialTag);
-  const initialPool = useMemo(() => getQuestionsByTag(initialTag), [initialTag]);
-  const [questionOrder, setQuestionOrder] = useState(() => buildInitialOrder(storedProgress?.questionOrder, initialPool));
+  const [sourceFilter, setSourceFilter] = useState<PracticeSourceFilter>(initialSourceFilter);
+  const initialPool = useMemo(() => getQuestionsForPractice(initialTag, initialSourceFilter), [initialTag, initialSourceFilter]);
+  const [roundSize, setRoundSize] = useState(() => getSafeRoundSize(storedProgress?.roundSize, initialPool.length));
+  const [questionOrder, setQuestionOrder] = useState(() =>
+    buildInitialOrder(storedProgress?.questionOrder, initialPool, roundSize),
+  );
   const [currentIndex, setCurrentIndex] = useState(() => getInitialIndex(storedProgress, questionOrder));
   const [selectedByQuestionId, setSelectedByQuestionId] = useState<Record<string, string[]>>(
     storedProgress?.selectedByQuestionId ?? {},
@@ -32,9 +38,10 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
   );
   const [skipWarning, setSkipWarning] = useState("");
 
-  const availableTags = useMemo(() => getAllTags(), []);
-  const pool = useMemo(() => getQuestionsByTag(activeTag), [activeTag]);
-  const orderedQuestions = useMemo(() => getOrderedQuestions(questionOrder, pool), [questionOrder, pool]);
+  const availableTags = useMemo(() => getTagsForSource(sourceFilter), [sourceFilter]);
+  const sourceCounts = useMemo(() => getQuestionSourceCounts(), []);
+  const pool = useMemo(() => getQuestionsForPractice(activeTag, sourceFilter), [activeTag, sourceFilter]);
+  const orderedQuestions = useMemo(() => getOrderedQuestions(questionOrder, pool, roundSize), [questionOrder, pool, roundSize]);
   const safeIndex = Math.min(currentIndex, Math.max(orderedQuestions.length - 1, 0));
   const question = orderedQuestions[safeIndex];
   const selectedOptionIds = selectedByQuestionId[question.id] ?? [];
@@ -49,10 +56,12 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
       questionOrder,
       completedQuestionIds: Array.from(completedQuestionIds),
       activeTag,
+      sourceFilter,
+      roundSize,
       selectedByQuestionId,
       updatedAt: new Date().toISOString(),
     });
-  }, [activeTag, completedQuestionIds, question.id, questionOrder, safeIndex, selectedByQuestionId]);
+  }, [activeTag, completedQuestionIds, question.id, questionOrder, roundSize, safeIndex, selectedByQuestionId, sourceFilter]);
 
   function toggleOption(optionId: string) {
     if (isSubmitted) {
@@ -96,7 +105,7 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
   }
 
   function startNewRound() {
-    const nextOrder = buildBalancedQuestionOrder(pool);
+    const nextOrder = buildBalancedQuestionOrder(pool, roundSize);
     setQuestionOrder(nextOrder);
     setCurrentIndex(0);
     setCompletedQuestionIds(new Set());
@@ -110,9 +119,41 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
     if (!confirmLeaveCurrentQuestion()) {
       return;
     }
-    const nextPool = getQuestionsByTag(nextTag);
+    resetRound(nextTag, sourceFilter, roundSize);
+  }
+
+  function changeSourceFilter(nextSourceFilter: PracticeSourceFilter) {
+    if (nextSourceFilter === sourceFilter) {
+      return;
+    }
+    if (!confirmLeaveCurrentQuestion()) {
+      return;
+    }
+    const nextTag = getQuestionsForPractice(activeTag, nextSourceFilter).length > 0 ? activeTag : ALL_TAGS;
+    resetRound(nextTag, nextSourceFilter, roundSize);
+  }
+
+  function changeRoundSize(nextRoundSize: number) {
+    if (!confirmLeaveCurrentQuestion()) {
+      return;
+    }
+    resetRound(activeTag, sourceFilter, nextRoundSize);
+  }
+
+  function startAllPastExamRound() {
+    if (!confirmLeaveCurrentQuestion()) {
+      return;
+    }
+    resetRound(ALL_TAGS, "past-exam", sourceCounts.pastExam);
+  }
+
+  function resetRound(nextTag: string, nextSourceFilter: PracticeSourceFilter, requestedRoundSize: number) {
+    const nextPool = getQuestionsForPractice(nextTag, nextSourceFilter);
+    const nextRoundSize = getSafeRoundSize(requestedRoundSize, nextPool.length);
     setActiveTag(nextTag);
-    setQuestionOrder(buildBalancedQuestionOrder(nextPool));
+    setSourceFilter(nextSourceFilter);
+    setRoundSize(nextRoundSize);
+    setQuestionOrder(buildBalancedQuestionOrder(nextPool, nextRoundSize));
     setCurrentIndex(0);
     setCompletedQuestionIds(new Set());
     setSkipWarning("");
@@ -153,6 +194,27 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
             ))}
           </select>
         </label>
+        <label>
+          题目来源
+          <select value={sourceFilter} onChange={(event) => changeSourceFilter(event.target.value as PracticeSourceFilter)}>
+            <option value="past-exam">只做历年题</option>
+            <option value="mixed">历年题 + 自出题</option>
+            <option value="self-test">只做自出题</option>
+          </select>
+        </label>
+        <label>
+          本轮题数
+          <input
+            max={Math.max(pool.length, 1)}
+            min={1}
+            onChange={(event) => changeRoundSize(Number(event.target.value))}
+            type="number"
+            value={roundSize}
+          />
+        </label>
+        <button className="secondary-button" onClick={startAllPastExamRound} type="button">
+          全历年题一轮
+        </button>
         <button className="secondary-button" onClick={startNewRound} type="button">
           重新随机一轮
         </button>
@@ -185,18 +247,31 @@ export function PracticePage({ onNavigate }: PracticePageProps) {
   );
 }
 
-function buildInitialOrder(savedOrder: string[] | undefined, pool: Question[]): string[] {
-  if (isUsableQuestionOrder(savedOrder, pool)) {
+function buildInitialOrder(savedOrder: string[] | undefined, pool: Question[], roundSize: number): string[] {
+  if (isUsableQuestionOrder(savedOrder, pool, roundSize)) {
     return savedOrder;
   }
-  return buildBalancedQuestionOrder(pool);
+  return buildBalancedQuestionOrder(pool, roundSize);
 }
 
 function getSafeInitialTag(savedTag: string | undefined): string {
   if (!savedTag || savedTag === ALL_TAGS) {
     return ALL_TAGS;
   }
-  return getQuestionsByTag(savedTag).length > 0 ? savedTag : ALL_TAGS;
+  return getQuestionsForPractice(savedTag, "mixed").length > 0 ? savedTag : ALL_TAGS;
+}
+
+function getSafeInitialSourceFilter(savedSourceFilter: PracticeSourceFilter | undefined): PracticeSourceFilter {
+  return savedSourceFilter && ["past-exam", "mixed", "self-test"].includes(savedSourceFilter) ? savedSourceFilter : "past-exam";
+}
+
+function getSafeRoundSize(requestedRoundSize: number | undefined, poolSize: number): number {
+  if (poolSize <= 0) {
+    return 0;
+  }
+  const fallback = Math.min(DEFAULT_PRACTICE_ROUND_SIZE, poolSize);
+  const requested = Number.isFinite(requestedRoundSize) ? Math.floor(Number(requestedRoundSize)) : fallback;
+  return Math.max(1, Math.min(requested, poolSize));
 }
 
 function getInitialIndex(
@@ -215,11 +290,16 @@ function getInitialIndex(
   return Math.max(0, Math.min(questionOrder.length - 1, progress.currentIndex ?? 0));
 }
 
-function getOrderedQuestions(questionOrder: string[], pool: Question[]): Question[] {
+function getOrderedQuestions(questionOrder: string[], pool: Question[], roundSize: number): Question[] {
   const poolIds = new Set(pool.map((question) => question.id));
   const ordered = questionOrder
     .map((questionId) => getQuestionById(questionId))
     .filter((question): question is Question => question !== undefined && poolIds.has(question.id));
 
-  return ordered.length === pool.length ? ordered : questions.filter((question) => poolIds.has(question.id));
+  if (ordered.length === questionOrder.length && ordered.length > 0) {
+    return ordered;
+  }
+
+  const fallbackIds = new Set(buildBalancedQuestionOrder(pool, roundSize));
+  return pool.filter((question) => fallbackIds.has(question.id));
 }

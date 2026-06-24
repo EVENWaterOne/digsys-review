@@ -417,7 +417,8 @@ main {
   flex-wrap: wrap;
 }
 
-.practice-controls select {
+.practice-controls select,
+.practice-controls input {
   min-width: 220px;
   min-height: 40px;
   margin-top: 5px;
@@ -557,7 +558,8 @@ main {
   }
 
   .practice-controls label,
-  .practice-controls select {
+  .practice-controls select,
+  .practice-controls input {
     width: 100%;
   }
 

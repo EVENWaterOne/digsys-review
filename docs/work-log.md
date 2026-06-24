@@ -77,3 +77,17 @@
 - 首页新增已保存练习进度提示和题库标签云；题卡新增来源标记与标签展示。
 - 独立题库校验通过：77 题、9 道 self-test、无重复 ID、答案均存在于选项中、图片路径存在、self-test 均有英文解析与来源 note。
 - 执行 `npm run build`：沙箱内普通运行仍因 `esbuild spawn EPERM` 失败；按既有记录提权重跑后构建通过。Vite 仍提示主 chunk 超过 500 kB，但不影响部署。
+
+## 2026-06-24 Practice Round Source Separation and Larger Self-Test Set
+
+- 根据用户反馈继续调整练习模式：网页中不再默认把所有题目放进同一轮，而是引入独立的练习轮次设置。
+- 新增 `PracticeSourceFilter`：练习模式可选 `只做历年题`、`历年题 + 自出题`、`只做自出题`。
+- 新增每轮题目数量设置，默认最多 20 题；用户可输入本轮数量，也可点击 `全历年题一轮` 生成 68 道 past-exam-only 轮次。
+- 题目队列现在只从当前来源、标签和题量范围内生成；队列仍按 topic 分组均衡穿插，同一轮不重复。
+- 保存练习进度时新增 `sourceFilter` 和 `roundSize`，因此保存退出后能恢复同一轮来源、标签、题量和当前题。
+- 标签下拉会根据当前题目来源范围动态变化，避免选择到没有题目的来源/标签组合。
+- 首页统计拆分为题目总数、历年题数量和自出题数量；保存进度提示也显示当前来源模式。
+- 继续根据 `DigSys_Exam_Focus_Complete.md` 新增 12 道不超纲 self-test 题，覆盖 GBz80 wrap-around、CP flags、instruction encoding、CALL/RET stack、VBlank/VRAM、Moore/Mealy、hold constraint、memory capacity、ALU control bits、single-cycle MIPS、multi-cycle MIPS 和 ideal pipeline cycles。
+- 当前题库变为 89 题：68 道 past-exam 题 + 21 道 self-test 题。
+- 独立题库校验通过：89 题、21 道 self-test、无重复 ID、答案均存在于选项中、图片路径存在、self-test 均有英文解析与来源 note。
+- 执行 `npm run build`：提权构建通过；Vite 仍提示主 chunk 超过 500 kB，但不影响 Cloudflare Pages 部署。

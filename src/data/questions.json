@@ -2719,5 +2719,469 @@
       "A"
     ],
     "explanation": "Correct answer: A. In 8-bit arithmetic, 0x7F is the largest positive two's-complement value, +127. Adding 0x01 gives the bit pattern 0x80 after truncation to 8 bits. That bit pattern represents -128 in two's complement. Since two positive operands produced a negative result, signed overflow occurred. This is separate from unsigned carry interpretation."
+  },
+  {
+    "id": "self-test-gbz80-wrap-001",
+    "topic": "GBz80 Assembly",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "assembly-tracing",
+      "wrap-around",
+      "flags"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 10 and 23.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "What are the final values of A and B after this GBz80 snippet?",
+    "code": "LD A,0\nLD B,1\nDEC A\nADD B",
+    "options": [
+      {
+        "id": "A",
+        "label": "A = 0x00, B = 0x01"
+      },
+      {
+        "id": "B",
+        "label": "A = 0xFF, B = 0x01"
+      },
+      {
+        "id": "C",
+        "label": "A = 0x01, B = 0x01"
+      },
+      {
+        "id": "D",
+        "label": "A = -1, B = 0x00"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. GBz80 registers are 8-bit values, so DEC A changes 0x00 to 0xFF by modulo-256 wrap-around. ADD B then adds B = 0x01 to A = 0xFF, producing 0x100 before truncation. Only the low 8 bits remain, so A becomes 0x00. B is not modified by ADD B; it is only read as the source operand. This tests the common wrap-around trap from the focus notes."
+  },
+  {
+    "id": "self-test-gbz80-cp-001",
+    "topic": "GBz80 Assembly",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "flags",
+      "comparison",
+      "code-tracing"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 10 and 23.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "After CP B executes, which statement is true?",
+    "code": "LD A,8\nLD B,8\nCP B",
+    "options": [
+      {
+        "id": "A",
+        "label": "A becomes 0 and Z is set."
+      },
+      {
+        "id": "B",
+        "label": "A stays 8 and Z is set."
+      },
+      {
+        "id": "C",
+        "label": "A stays 8 and C is set."
+      },
+      {
+        "id": "D",
+        "label": "B becomes 0 and Z is set."
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer: B. CP B compares A with B by internally evaluating A - B for flags, but it does not store the subtraction result. Since A and B are both 8, the comparison result is zero, so the zero flag is set. A remains 8 and B remains 8. This is one of the most frequent GBz80 mistakes: treating CP as if it were SUB."
+  },
+  {
+    "id": "self-test-gbz80-encoding-001",
+    "topic": "GBz80 Instructions Encoding and Microinstructions",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "instruction-encoding",
+      "immediate-size"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 10 and 17.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Why does an instruction such as LD HL,0x1234 occupy more bytes than LD B,C on the GBz80?",
+    "options": [
+      {
+        "id": "A",
+        "label": "LD HL,0x1234 includes a 16-bit immediate operand in addition to its opcode."
+      },
+      {
+        "id": "B",
+        "label": "LD B,C must store a hidden 16-bit address in memory."
+      },
+      {
+        "id": "C",
+        "label": "All GBz80 instructions are fixed at exactly 4 bytes."
+      },
+      {
+        "id": "D",
+        "label": "Register-to-register moves require two immediate bytes."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. The GBz80 uses variable-length instructions. A register-to-register operation such as LD B,C can encode both register operands compactly in the opcode byte. By contrast, LD HL,0x1234 needs the opcode plus the 16-bit immediate value, which occupies two additional bytes. This distinction is central to instruction-size and CISC-encoding questions."
+  },
+  {
+    "id": "self-test-stack-call-001",
+    "topic": "GBz80 Architecture",
+    "tags": [
+      "self-test",
+      "gbz80",
+      "stack",
+      "call-ret",
+      "program-counter"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Sections 12 and 25.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is the key architectural difference between JP label and CALL label on the GBz80?",
+    "options": [
+      {
+        "id": "A",
+        "label": "CALL saves a return address on the stack; JP does not."
+      },
+      {
+        "id": "B",
+        "label": "JP saves all registers automatically; CALL does not."
+      },
+      {
+        "id": "C",
+        "label": "CALL is only allowed inside VBlank."
+      },
+      {
+        "id": "D",
+        "label": "JP can only jump to addresses stored in HL."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. Both JP label and CALL label change the Program Counter to transfer control. CALL additionally pushes the return address on the stack so that RET can later resume execution after the call site. JP is an unconditional transfer with no automatic return path. This is why CALL/RET questions are also stack questions, not merely jump questions."
+  },
+  {
+    "id": "self-test-gameboy-vblank-001",
+    "topic": "Game Boy Memory Map",
+    "tags": [
+      "self-test",
+      "game-boy",
+      "vblank",
+      "vram",
+      "ppu"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 16.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "During normal Game Boy rendering, why are VRAM updates usually scheduled during VBlank?",
+    "options": [
+      {
+        "id": "A",
+        "label": "The CPU can access VRAM/OAM more safely when the PPU is not actively drawing the visible frame."
+      },
+      {
+        "id": "B",
+        "label": "VBlank is the only time ROM can be read."
+      },
+      {
+        "id": "C",
+        "label": "VBlank automatically copies every variable from WRAM to VRAM."
+      },
+      {
+        "id": "D",
+        "label": "The ALU is disabled outside VBlank."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. The PPU uses VRAM and OAM while drawing the visible frame, so unrestricted CPU writes during active rendering can be blocked or unsafe depending on the region and timing. VBlank is the interval after visible scanlines when updates to graphics-related memory are normally scheduled. The point is memory-access timing, not ROM readability or automatic data transfer."
+  },
+  {
+    "id": "self-test-fsm-mealy-001",
+    "topic": "Finite State Machines (FSM)",
+    "tags": [
+      "self-test",
+      "fsm",
+      "mealy",
+      "moore",
+      "sequential-logic"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 6.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Which statement best distinguishes a Mealy FSM from a Moore FSM?",
+    "options": [
+      {
+        "id": "A",
+        "label": "A Mealy output may depend on current input and current state."
+      },
+      {
+        "id": "B",
+        "label": "A Mealy FSM cannot have a reset state."
+      },
+      {
+        "id": "C",
+        "label": "A Moore output must depend directly on the current input."
+      },
+      {
+        "id": "D",
+        "label": "Only Moore machines use flip-flops."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. In a Moore FSM, outputs depend only on the current state. In a Mealy FSM, outputs can depend on both the current state and the current input, which is why Mealy transitions are often labeled input/output. Both styles use state registers and may have reset behavior. The difference is the output dependency, not whether flip-flops are present."
+  },
+  {
+    "id": "self-test-hold-time-001",
+    "topic": "Sequential Timing",
+    "tags": [
+      "self-test",
+      "sequential-logic",
+      "timing",
+      "hold-time"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 5.",
+    "difficulty": "hard",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A path has t_ccq = 35 ps, contamination delay t_cd = 20 ps, and t_hold = 70 ps. What is true about the hold constraint?",
+    "options": [
+      {
+        "id": "A",
+        "label": "The hold constraint is violated because 35 + 20 < 70."
+      },
+      {
+        "id": "B",
+        "label": "The hold constraint is satisfied because setup time is not listed."
+      },
+      {
+        "id": "C",
+        "label": "The hold constraint can always be fixed by lowering the clock frequency."
+      },
+      {
+        "id": "D",
+        "label": "The hold constraint uses t_pd, not t_cd."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. The hold constraint is t_ccq + t_cd(combinational) >= t_hold. Here the earliest new data can arrive after 35 ps + 20 ps = 55 ps, but the receiving register needs the old input held for 70 ps after the clock edge. Since 55 ps is too early, this is a hold violation. Lowering the clock frequency helps setup violations, but it does not generally fix hold violations."
+  },
+  {
+    "id": "self-test-memory-capacity-001",
+    "topic": "Memory Arrays",
+    "tags": [
+      "self-test",
+      "memory",
+      "capacity",
+      "address-lines"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 9.",
+    "difficulty": "easy",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "A memory has 10 address lines and stores 8 bits at each address. What is its total capacity?",
+    "options": [
+      {
+        "id": "A",
+        "label": "80 bits"
+      },
+      {
+        "id": "B",
+        "label": "1024 bits"
+      },
+      {
+        "id": "C",
+        "label": "8192 bits, or 1024 bytes"
+      },
+      {
+        "id": "D",
+        "label": "10 bytes"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer: C. Ten address lines select 2^10 = 1024 memory locations. Each location stores 8 bits, so the total capacity is 1024 × 8 = 8192 bits. Since 8 bits make one byte, that is 1024 bytes. The common trap is to multiply the number of address lines by the width instead of exponentiating the address-line count."
+  },
+  {
+    "id": "self-test-alu-control-001",
+    "topic": "Arithmetic and Logic Unit (ALU) and Memory Arrays",
+    "tags": [
+      "self-test",
+      "alu",
+      "control-signals",
+      "log2"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 8.",
+    "difficulty": "easy",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "An ALU must select among 6 operations. What is the minimum number of binary control bits required?",
+    "options": [
+      {
+        "id": "A",
+        "label": "2 bits"
+      },
+      {
+        "id": "B",
+        "label": "3 bits"
+      },
+      {
+        "id": "C",
+        "label": "6 bits"
+      },
+      {
+        "id": "D",
+        "label": "12 bits"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer: B. With k binary control bits, the ALU can encode 2^k operation codes. Two bits encode only 4 operations, which is not enough for 6. Three bits encode 8 possible operation codes, enough to cover all 6 operations with two unused codes. Therefore the minimum is ceil(log2 6) = 3 bits."
+  },
+  {
+    "id": "self-test-mips-single-cycle-001",
+    "topic": "MIPS Assembly and Microarchitecture",
+    "tags": [
+      "self-test",
+      "mips",
+      "single-cycle",
+      "datapath",
+      "lw"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 19.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "In a single-cycle MIPS processor, which instruction usually determines the minimum clock period among common lw, sw, R-type, beq, and j instructions?",
+    "options": [
+      {
+        "id": "A",
+        "label": "lw, because it uses instruction memory, register read, ALU address calculation, data memory, and register writeback in one cycle."
+      },
+      {
+        "id": "B",
+        "label": "j, because it writes the data memory."
+      },
+      {
+        "id": "C",
+        "label": "beq, because it never uses the ALU."
+      },
+      {
+        "id": "D",
+        "label": "R-type, because it fetches two instructions at once."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. In a single-cycle design, every instruction must complete within one clock cycle, so the clock period must be long enough for the slowest instruction path. The lw path is typically the longest because it fetches the instruction, reads the base register, sign-extends the offset, computes the effective address in the ALU, reads data memory, and writes the loaded value back to the register file. Simpler instructions still wait for this same long cycle."
+  },
+  {
+    "id": "self-test-multicycle-001",
+    "topic": "MIPS architecture and microarchitecture",
+    "tags": [
+      "self-test",
+      "mips",
+      "multi-cycle",
+      "microarchitecture"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 20.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "What is a major hardware advantage of a multi-cycle MIPS implementation compared with a single-cycle implementation?",
+    "options": [
+      {
+        "id": "A",
+        "label": "It can reuse hardware such as the ALU or a single memory in different cycles."
+      },
+      {
+        "id": "B",
+        "label": "It eliminates the need for a control unit."
+      },
+      {
+        "id": "C",
+        "label": "It makes every instruction complete in one cycle."
+      },
+      {
+        "id": "D",
+        "label": "It requires no internal registers between steps."
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer: A. A multi-cycle implementation breaks instruction execution into several shorter steps. Because different steps occur in different cycles, the same ALU can be reused for PC+4, address calculation, and arithmetic, and a single memory can serve instruction fetch and data access at different times. The trade-off is a more involved control FSM and different CPI values for different instruction classes."
+  },
+  {
+    "id": "self-test-pipeline-cycles-001",
+    "topic": "Pipelined MIPS",
+    "tags": [
+      "self-test",
+      "mips",
+      "pipeline",
+      "performance"
+    ],
+    "sourceType": "self-test",
+    "note": "Self-test question generated from DigSys_Exam_Focus_Complete.md, Section 21.",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "Ignoring hazards, how many cycles does an ideal 5-stage pipeline need to complete 12 instructions?",
+    "options": [
+      {
+        "id": "A",
+        "label": "12 cycles"
+      },
+      {
+        "id": "B",
+        "label": "16 cycles"
+      },
+      {
+        "id": "C",
+        "label": "17 cycles"
+      },
+      {
+        "id": "D",
+        "label": "60 cycles"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer: B. In an ideal 5-stage pipeline, the first instruction takes 5 cycles to pass through IF, ID, EX, MEM, and WB. After the pipeline fills, one instruction completes per cycle. The standard formula for N instructions in a 5-stage pipeline without stalls or flushes is N + 4 cycles. For N = 12, this gives 12 + 4 = 16 cycles."
   }
 ]

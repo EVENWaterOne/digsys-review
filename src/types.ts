@@ -2,6 +2,7 @@ export type QuestionMode = "single" | "multiple";
 export type QuestionContentType = "text" | "code" | "image";
 export type StudyMode = "practice" | "exam";
 export type QuestionSourceType = "past-exam" | "self-test";
+export type PracticeSourceFilter = "past-exam" | "mixed" | "self-test";
 
 export interface Option {
   id: string;
@@ -43,6 +44,8 @@ export interface ProgressState {
   questionOrder?: string[];
   completedQuestionIds?: string[];
   activeTag?: string;
+  sourceFilter?: PracticeSourceFilter;
+  roundSize?: number;
   selectedByQuestionId: Record<string, string[]>;
   updatedAt: string;
 }

@@ -1,8 +1,9 @@
 import rawQuestions from "../data/questions.json";
-import type { Question } from "../types";
+import type { PracticeSourceFilter, Question } from "../types";
 
 export const questions = rawQuestions as Question[];
 export const ALL_TAGS = "all";
+export const DEFAULT_PRACTICE_ROUND_SIZE = 20;
 
 export function getQuestionById(questionId: string): Question | undefined {
   return questions.find((question) => question.id === questionId);
@@ -19,6 +20,14 @@ export function getAllTags(): string[] {
   );
 }
 
+export function getTagsForSource(sourceFilter: PracticeSourceFilter): string[] {
+  const sourceQuestions =
+    sourceFilter === "mixed" ? questions : questions.filter((question) => question.sourceType === sourceFilter);
+  return Array.from(new Set(sourceQuestions.flatMap((question) => question.tags ?? []))).sort((a, b) =>
+    a.localeCompare(b),
+  );
+}
+
 export function getQuestionsByTag(tag: string): Question[] {
   if (tag === ALL_TAGS) {
     return questions;
@@ -26,7 +35,23 @@ export function getQuestionsByTag(tag: string): Question[] {
   return questions.filter((question) => question.tags?.includes(tag));
 }
 
-export function buildBalancedQuestionOrder(pool: Question[]): string[] {
+export function getQuestionsForPractice(tag: string, sourceFilter: PracticeSourceFilter): Question[] {
+  return getQuestionsByTag(tag).filter((question) => {
+    if (sourceFilter === "mixed") {
+      return true;
+    }
+    return question.sourceType === sourceFilter;
+  });
+}
+
+export function getQuestionSourceCounts() {
+  return {
+    pastExam: questions.filter((question) => question.sourceType === "past-exam").length,
+    selfTest: questions.filter((question) => question.sourceType === "self-test").length,
+  };
+}
+
+export function buildBalancedQuestionOrder(pool: Question[], roundSize = pool.length): string[] {
   const groups = new Map<string, Question[]>();
   pool.forEach((question) => {
     const key = question.topic || "Uncategorized";
@@ -48,11 +73,12 @@ export function buildBalancedQuestionOrder(pool: Question[]): string[] {
     });
   }
 
-  return order;
+  return order.slice(0, Math.max(0, Math.min(roundSize, order.length)));
 }
 
-export function isUsableQuestionOrder(order: string[] | undefined, pool: Question[]): order is string[] {
-  if (!order?.length || order.length !== pool.length) {
+export function isUsableQuestionOrder(order: string[] | undefined, pool: Question[], roundSize: number): order is string[] {
+  const expectedLength = Math.max(0, Math.min(roundSize, pool.length));
+  if (!order?.length || order.length !== expectedLength) {
     return false;
   }
   const poolIds = new Set(pool.map((question) => question.id));
