@@ -23,10 +23,13 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <p className="eyebrow">DigSys 多项选择题复习</p>
           <h1>用一个安静的界面，把选择题刷扎实。</h1>
           <p>
-            当前第一版支持练习即时解析、模拟考试统一判分、错题回看、统计记录和本地进度保存。
+            当前版本支持知识点学习、练习即时解析、模拟考试统一判分、错题回看、统计记录和本地进度保存。
           </p>
         </div>
         <div className="hero-actions">
+          <button className="primary-button" onClick={() => onNavigate("study")} type="button">
+            学习模式
+          </button>
           <button className="primary-button" onClick={() => onNavigate("practice")} type="button">
             {practiceProgress ? "继续练习" : "开始练习"}
           </button>

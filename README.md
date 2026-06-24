@@ -4,7 +4,9 @@
 
 ## 功能
 
-- 首页、练习页面、模拟考试页面、错题页面、结果统计页面
+- 首页、学习页面、练习页面、模拟考试页面、错题页面、结果统计页面
+- 学习模式按知识点编排：先用英文讲核心概念，再接对应题目练习
+- 学习模式标注对应 Lecture 编号和 `DigSys_Exam_Focus_Complete.md` 章节
 - 支持单选题和多选题
 - 题目从 `src/data/questions.json` 读取
 - 练习模式提交后立即显示答案和解析
@@ -47,6 +49,7 @@ WebReview/
   public/question-assets/      # 图片题资源
   src/components/              # 复用组件
   src/data/questions.json      # 独立题库 JSON，含模拟题和 past exam 题
+  src/data/studyModules.ts     # 学习模式知识点模块，引用 lecture 和重点总结
   src/design/                  # 网页视觉设计相关文件
   src/lib/                     # 题库读取与 localStorage 逻辑
   src/pages/                   # 首页、练习、考试、错题、统计页面
@@ -88,6 +91,17 @@ WebReview/
 图片题可把图片放在 `public/question-assets/`，然后在 JSON 中使用 `/question-assets/文件名`。
 
 当前 past exam 图片资源位于 `public/question-assets/past-exam/`。
+
+## 扩展学习模式
+
+学习模式数据位于 `src/data/studyModules.ts`。每个知识点模块包含：
+
+- `lectureRefs`：对应 Lecture 编号，例如 `Lecture 07`。
+- `focusRefs`：对应 `DigSys_Exam_Focus_Complete.md` 的章节范围。
+- `questionTags`：用于自动匹配题库中的相关题目。
+- `summary`、`keyPoints`、`workedExample`、`commonTraps`：英文知识点讲解内容。
+
+当前实现只在网页中引用 Lecture 编号，没有把 `../Lecture/*.pdf` 复制到 `public`，避免把课程 PDF 原件发布到 GitHub/Cloudflare。
 
 ## 公式写法
 

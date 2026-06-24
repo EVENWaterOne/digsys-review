@@ -91,3 +91,13 @@
 - 当前题库变为 89 题：68 道 past-exam 题 + 21 道 self-test 题。
 - 独立题库校验通过：89 题、21 道 self-test、无重复 ID、答案均存在于选项中、图片路径存在、self-test 均有英文解析与来源 note。
 - 执行 `npm run build`：提权构建通过；Vite 仍提示主 chunk 超过 500 kB，但不影响 Cloudflare Pages 部署。
+
+## 2026-06-25 Study Mode
+
+- 根据用户要求新增独立学习模式页面：路由为 `#/study`，导航栏显示 `学习`，首页新增 `学习模式` 入口。
+- 新增 `src/data/studyModules.ts`，按知识点编排 8 个学习模块：Number Representation、Boolean/K-map、Sequential/FSM、ALU/Memory、GBz80 tracing、GBz80 memory/control/cycles、MIPS ISA/datapath、MIPS multicycle/pipeline。
+- 每个学习模块包含英文讲解：summary、key ideas、worked example、common traps；同时标注对应 Lecture 编号和 `DigSys_Exam_Focus_Complete.md` 章节范围。
+- 学习模式的题目练习通过 `questionTags` 自动匹配现有题库；先显示英文知识点，再显示该知识点相关题目，题目提交后复用现有即时解析和答题记录逻辑。
+- 设计决定：不把 `../Lecture/*.pdf` 复制进 `WebReview/public`，只在页面中标注 Lecture 编号和重点总结章节，避免把课程 PDF 原件随 GitHub/Cloudflare 公网部署发布。
+- 更新 `src/routing.ts`、`src/App.tsx`、`PageShell`、`HomePage` 和 `base.css`，接入新页面和响应式学习布局。
+- 执行 `npm run build`：提权构建通过；Vite 仍提示主 chunk 超过 500 kB，但不影响部署。

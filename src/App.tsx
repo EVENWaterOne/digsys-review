@@ -5,6 +5,7 @@ import { PracticePage } from "./pages/PracticePage";
 import { ExamPage } from "./pages/ExamPage";
 import { MistakesPage } from "./pages/MistakesPage";
 import { ResultsPage } from "./pages/ResultsPage";
+import { StudyPage } from "./pages/StudyPage";
 import { hashForRoute, routeFromHash, type RouteKey } from "./routing";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
 
   const page = {
     home: <HomePage onNavigate={navigate} />,
+    study: <StudyPage />,
     practice: <PracticePage onNavigate={navigate} />,
     exam: <ExamPage onNavigate={navigate} />,
     mistakes: <MistakesPage />,

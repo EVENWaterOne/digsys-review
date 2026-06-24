@@ -9,6 +9,7 @@ interface PageShellProps {
 
 const navItems: Array<{ route: RouteKey; label: string }> = [
   { route: "home", label: "首页" },
+  { route: "study", label: "学习" },
   { route: "practice", label: "练习" },
   { route: "exam", label: "模拟考试" },
   { route: "mistakes", label: "错题" },

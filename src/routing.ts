@@ -1,7 +1,8 @@
-export type RouteKey = "home" | "practice" | "exam" | "mistakes" | "results";
+export type RouteKey = "home" | "study" | "practice" | "exam" | "mistakes" | "results";
 
 const routeMap: Record<string, RouteKey> = {
   "#/": "home",
+  "#/study": "study",
   "#/practice": "practice",
   "#/exam": "exam",
   "#/mistakes": "mistakes",
@@ -10,6 +11,7 @@ const routeMap: Record<string, RouteKey> = {
 
 const hashMap: Record<RouteKey, string> = {
   home: "#/",
+  study: "#/study",
   practice: "#/practice",
   exam: "#/exam",
   mistakes: "#/mistakes",
