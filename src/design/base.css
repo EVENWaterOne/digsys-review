@@ -355,6 +355,25 @@ main {
   line-height: 1.7;
 }
 
+.math-text,
+.math-text-inline {
+  line-height: inherit;
+}
+
+.math-inline {
+  display: inline;
+}
+
+.math-block {
+  display: block;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.katex {
+  font-size: 1.03em;
+}
+
 .toolbar {
   justify-content: flex-end;
 }

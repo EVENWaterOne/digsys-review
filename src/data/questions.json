@@ -23,22 +23,21 @@
     "contentType": "text",
     "prompt": "关于布尔代数恒等式，哪些说法是正确的？",
     "options": [
-      { "id": "A", "label": "A + A = A" },
-      { "id": "B", "label": "A · A = 0" },
-      { "id": "C", "label": "A + A' = 1" },
-      { "id": "D", "label": "A · 1 = A" }
+      { "id": "A", "label": "$A + A = A$" },
+      { "id": "B", "label": "$A \\cdot A = 0$" },
+      { "id": "C", "label": "$A + \\overline{A} = 1$" },
+      { "id": "D", "label": "$A \\cdot 1 = A$" }
     ],
     "correctOptionIds": ["A", "C", "D"],
-    "explanation": "幂等律给出 A + A = A 和 A · A = A；互补律给出 A + A' = 1；恒等律给出 A · 1 = A。"
+    "explanation": "幂等律给出 $A + A = A$ 和 $A \\cdot A = A$；互补律给出 $A + \\overline{A} = 1$；恒等律给出 $A \\cdot 1 = A$。"
   },
   {
-    "id": "ds-verilog-001",
-    "topic": "Verilog",
+    "id": "ds-boolean-002",
+    "topic": "Boolean Algebra",
     "difficulty": "medium",
     "mode": "single",
-    "contentType": "code",
-    "prompt": "下面 Verilog 片段描述的组合逻辑最接近哪个门？",
-    "code": "assign y = (a & ~b) | (~a & b);",
+    "contentType": "text",
+    "prompt": "布尔表达式 $F = A\\overline{B} + \\overline{A}B$ 最接近哪个逻辑门？",
     "options": [
       { "id": "A", "label": "AND" },
       { "id": "B", "label": "OR" },
@@ -46,7 +45,24 @@
       { "id": "D", "label": "XNOR" }
     ],
     "correctOptionIds": ["C"],
-    "explanation": "当 a 与 b 不相同时输出 1，正是 XOR 的定义。"
+    "explanation": "当 $A$ 与 $B$ 不相同时，$F = 1$；当二者相同时，$F = 0$，这正是 XOR。"
+  },
+  {
+    "id": "ds-mips-001",
+    "topic": "MIPS Datapath",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "下面 MIPS 指令片段中，第二条指令主要依赖第一条指令的哪个结果？",
+    "code": "lw  $t0, 0($t1)\nadd $t2, $t0, $t3",
+    "options": [
+      { "id": "A", "label": "第一条指令从内存读出的 $t0$ 数据" },
+      { "id": "B", "label": "第一条指令写入的程序计数器 PC" },
+      { "id": "C", "label": "第一条指令使用的立即数 0" },
+      { "id": "D", "label": "第一条指令的操作码 opcode" }
+    ],
+    "correctOptionIds": ["A"],
+    "explanation": "$add$ 需要读取 $t0$，而 $t0$ 正是前一条 $lw$ 从内存载入的结果；这对应数据相关。"
   },
   {
     "id": "ds-kmap-001",

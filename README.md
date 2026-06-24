@@ -11,6 +11,7 @@
 - 考试模式最后统一判分
 - 使用 localStorage 保存答题记录、错题、练习进度和考试进度
 - 支持文字题、代码题和图片题
+- 支持 KaTeX 公式渲染，题干、选项和解析可使用 `$...$` 与 `$$...$$`
 - 响应式布局，适配电脑、平板和手机
 
 ## 运行
@@ -68,3 +69,22 @@ WebReview/
 ```
 
 图片题可把图片放在 `public/question-assets/`，然后在 JSON 中使用 `/question-assets/文件名`。
+
+## 公式写法
+
+题干、选项和解析支持 KaTeX：
+
+```json
+{
+  "prompt": "布尔表达式 $F = A\\overline{B} + \\overline{A}B$ 最接近哪个逻辑门？",
+  "explanation": "当 $A$ 与 $B$ 不相同时，$F = 1$。"
+}
+```
+
+块级公式也可以使用：
+
+```json
+{
+  "prompt": "$$F = A\\overline{B} + \\overline{A}B$$"
+}
+```

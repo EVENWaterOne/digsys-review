@@ -1,4 +1,5 @@
 import type { Question } from "../types";
+import { MathText } from "./MathText";
 
 interface QuestionCardProps {
   question: Question;
@@ -19,7 +20,9 @@ export function QuestionCard({ question, selectedOptionIds, revealAnswer = false
         <span>{difficultyLabel[question.difficulty]}</span>
       </div>
 
-      <h2>{question.prompt}</h2>
+      <h2>
+        <MathText text={question.prompt} inline />
+      </h2>
 
       {question.code ? <pre className="code-block"><code>{question.code}</code></pre> : null}
 
@@ -49,7 +52,9 @@ export function QuestionCard({ question, selectedOptionIds, revealAnswer = false
               type="button"
             >
               <span className="option-key">{option.id}</span>
-              <span>{option.label}</span>
+              <span>
+                <MathText text={option.label} inline />
+              </span>
             </button>
           );
         })}
@@ -58,7 +63,9 @@ export function QuestionCard({ question, selectedOptionIds, revealAnswer = false
       {revealAnswer ? (
         <div className="answer-panel">
           <strong>答案：{question.correctOptionIds.join(", ")}</strong>
-          <p>{question.explanation}</p>
+          <p>
+            <MathText text={question.explanation} inline />
+          </p>
         </div>
       ) : null}
     </article>

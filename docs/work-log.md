@@ -24,3 +24,13 @@
 - 原因：代码块继承页面中文 UI 字体，没有指定等宽代码字体。
 - 修复：为 `.code-block` 增加 Cascadia Code / Consolas 等宽字体栈，并加入更稳定的行高和窄屏换行规则。
 - 重新执行 `npm run build`，构建通过。
+
+## 2026-06-24 KaTeX Formula Support
+
+- 安装 `katex`，并在入口导入 KaTeX 样式。
+- 新增 `src/components/MathText.tsx`，支持 `$...$` 行内公式和 `$$...$$` 块级公式。
+- 将题干、选项、解析接入公式渲染。
+- 将超出课程范围的 Verilog 样题替换为布尔表达式题：`$F = A\overline{B} + \overline{A}B$`。
+- 保留代码题能力，新增更贴近课程后半段的 MIPS 指令片段题。
+- 更新 README，说明 JSON 中 LaTeX 反斜杠需要写成双反斜杠。
+- 重新执行 `npm run build`，构建通过。
