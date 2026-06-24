@@ -5,7 +5,7 @@
 ## 功能
 
 - 首页、学习页面、练习页面、模拟考试页面、错题页面、结果统计页面
-- 学习模式按知识点编排：先用英文讲核心概念，再接对应题目练习
+- 学习模式按知识点编排：先用英文讲核心概念，并提供中文对照翻译，再接对应题目练习
 - 学习模式标注对应 Lecture 编号和 `DigSys_Exam_Focus_Complete.md` 章节
 - 支持单选题和多选题
 - 题目从 `src/data/questions.json` 读取
@@ -100,8 +100,15 @@ WebReview/
 - `focusRefs`：对应 `DigSys_Exam_Focus_Complete.md` 的章节范围。
 - `questionTags`：用于自动匹配题库中的相关题目。
 - `summary`、`keyPoints`、`workedExample`、`commonTraps`：英文知识点讲解内容。
+- `titleZh`、`summaryZh`、`keyPointsZh`、`workedExampleZh`、`commonTrapsZh`：对应中文翻译。
 
 当前实现只在网页中引用 Lecture 编号，没有把 `../Lecture/*.pdf` 复制到 `public`，避免把课程 PDF 原件发布到 GitHub/Cloudflare。
+
+学习模块一致性检查：
+
+```powershell
+npm run validate:study
+```
 
 ## 公式写法
 

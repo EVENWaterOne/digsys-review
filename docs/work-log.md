@@ -101,3 +101,11 @@
 - 设计决定：不把 `../Lecture/*.pdf` 复制进 `WebReview/public`，只在页面中标注 Lecture 编号和重点总结章节，避免把课程 PDF 原件随 GitHub/Cloudflare 公网部署发布。
 - 更新 `src/routing.ts`、`src/App.tsx`、`PageShell`、`HomePage` 和 `base.css`，接入新页面和响应式学习布局。
 - 执行 `npm run build`：提权构建通过；Vite 仍提示主 chunk 超过 500 kB，但不影响部署。
+
+## 2026-06-25 Bilingual Study Mode
+
+- 按计划为 `src/data/studyModules.ts` 的 8 个学习模块补充中文对照字段：`titleZh`、`summaryZh`、`keyPointsZh`、`workedExampleZh` 和 `commonTrapsZh`。
+- 更新 Study Mode 页面展示：英文标题/段落/要点/例子/陷阱保留在上方，中文翻译紧跟其下；公式和核心术语保留原英文写法以便考试复习。
+- 更新样式，使中文翻译使用更柔和颜色和略小字号；移动端继续采用纵向块内对照，不使用左右双栏。
+- 新增 `tools/validate_study_modules.mjs` 和 `npm run validate:study`，检查每个模块中文字段存在，并确保 `keyPoints` 与 `keyPointsZh`、`commonTraps` 与 `commonTrapsZh` 长度一致。
+- 更新 README，记录学习模式中英对照字段和校验命令。

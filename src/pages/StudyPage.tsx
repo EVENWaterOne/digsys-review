@@ -78,6 +78,7 @@ export function StudyPage() {
             <div>
               <p className="eyebrow">English concept brief</p>
               <h2>{activeModule.title}</h2>
+              <p className="study-title-zh">{activeModule.titleZh}</p>
             </div>
             <span className="progress-pill">Priority {activeModule.priority}</span>
           </div>
@@ -91,35 +92,21 @@ export function StudyPage() {
             ))}
           </div>
 
-          <p className="study-summary">
-            <MathText text={activeModule.summary} inline />
-          </p>
+          <BilingualParagraph english={activeModule.summary} chinese={activeModule.summaryZh} className="study-summary" />
 
           <section className="study-section">
             <h3>Key ideas</h3>
-            <ul>
-              {activeModule.keyPoints.map((point) => (
-                <li key={point}>
-                  <MathText text={point} inline />
-                </li>
-              ))}
-            </ul>
+            <BilingualList englishItems={activeModule.keyPoints} chineseItems={activeModule.keyPointsZh} />
           </section>
 
           <section className="study-section">
             <h3>Worked example</h3>
-            <p>
-              <MathText text={activeModule.workedExample} inline />
-            </p>
+            <BilingualParagraph english={activeModule.workedExample} chinese={activeModule.workedExampleZh} />
           </section>
 
           <section className="study-section">
             <h3>Common traps</h3>
-            <ul>
-              {activeModule.commonTraps.map((trap) => (
-                <li key={trap}>{trap}</li>
-              ))}
-            </ul>
+            <BilingualList englishItems={activeModule.commonTraps} chineseItems={activeModule.commonTrapsZh} />
           </section>
         </article>
 
@@ -179,6 +166,47 @@ export function StudyPage() {
         </section>
       </div>
     </section>
+  );
+}
+
+interface BilingualParagraphProps {
+  english: string;
+  chinese: string;
+  className?: string;
+}
+
+function BilingualParagraph({ english, chinese, className }: BilingualParagraphProps) {
+  return (
+    <div className={className}>
+      <p>
+        <MathText text={english} inline />
+      </p>
+      <p className="zh-text">
+        <MathText text={chinese} inline />
+      </p>
+    </div>
+  );
+}
+
+interface BilingualListProps {
+  englishItems: string[];
+  chineseItems: string[];
+}
+
+function BilingualList({ englishItems, chineseItems }: BilingualListProps) {
+  return (
+    <ul className="bilingual-list">
+      {englishItems.map((item, index) => (
+        <li key={item}>
+          <p>
+            <MathText text={item} inline />
+          </p>
+          <p className="zh-text">
+            <MathText text={chineseItems[index] ?? ""} inline />
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
 

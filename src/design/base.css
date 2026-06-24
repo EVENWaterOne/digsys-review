@@ -540,6 +540,14 @@ main {
   line-height: 1.15;
 }
 
+.study-title-zh {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
 .reference-row {
   display: flex;
   flex-wrap: wrap;
@@ -557,7 +565,7 @@ main {
   padding: 5px 10px;
 }
 
-.study-summary,
+.study-summary p,
 .study-section p,
 .study-section li {
   color: #334155;
@@ -567,6 +575,17 @@ main {
 .study-summary {
   margin: 0 0 18px;
   font-size: 1.03rem;
+}
+
+.study-summary p,
+.study-section p {
+  margin: 0;
+}
+
+.zh-text {
+  margin-top: 6px !important;
+  color: #64748b !important;
+  font-size: 0.94rem;
 }
 
 .study-section {
@@ -582,9 +601,13 @@ main {
 
 .study-section ul {
   display: grid;
-  gap: 8px;
+  gap: 12px;
   padding-left: 22px;
   margin: 0;
+}
+
+.bilingual-list li p + p {
+  margin-top: 4px;
 }
 
 .math-text,
