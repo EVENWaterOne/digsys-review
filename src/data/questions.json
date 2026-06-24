@@ -1,0 +1,87 @@
+[
+  {
+    "id": "ds-binary-001",
+    "topic": "Number Systems",
+    "difficulty": "easy",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "二进制数 101101 转换为十进制是多少？",
+    "options": [
+      { "id": "A", "label": "41" },
+      { "id": "B", "label": "45" },
+      { "id": "C", "label": "47" },
+      { "id": "D", "label": "53" }
+    ],
+    "correctOptionIds": ["B"],
+    "explanation": "101101₂ = 32 + 8 + 4 + 1 = 45。"
+  },
+  {
+    "id": "ds-boolean-001",
+    "topic": "Boolean Algebra",
+    "difficulty": "medium",
+    "mode": "multiple",
+    "contentType": "text",
+    "prompt": "关于布尔代数恒等式，哪些说法是正确的？",
+    "options": [
+      { "id": "A", "label": "A + A = A" },
+      { "id": "B", "label": "A · A = 0" },
+      { "id": "C", "label": "A + A' = 1" },
+      { "id": "D", "label": "A · 1 = A" }
+    ],
+    "correctOptionIds": ["A", "C", "D"],
+    "explanation": "幂等律给出 A + A = A 和 A · A = A；互补律给出 A + A' = 1；恒等律给出 A · 1 = A。"
+  },
+  {
+    "id": "ds-verilog-001",
+    "topic": "Verilog",
+    "difficulty": "medium",
+    "mode": "single",
+    "contentType": "code",
+    "prompt": "下面 Verilog 片段描述的组合逻辑最接近哪个门？",
+    "code": "assign y = (a & ~b) | (~a & b);",
+    "options": [
+      { "id": "A", "label": "AND" },
+      { "id": "B", "label": "OR" },
+      { "id": "C", "label": "XOR" },
+      { "id": "D", "label": "XNOR" }
+    ],
+    "correctOptionIds": ["C"],
+    "explanation": "当 a 与 b 不相同时输出 1，正是 XOR 的定义。"
+  },
+  {
+    "id": "ds-kmap-001",
+    "topic": "Karnaugh Map",
+    "difficulty": "hard",
+    "mode": "multiple",
+    "contentType": "image",
+    "prompt": "根据图中的 2 变量 K-map，哪些最小项输出为 1？",
+    "image": {
+      "src": "/question-assets/kmap-2var.svg",
+      "alt": "2 variable Karnaugh map with ones at cells 01 and 11"
+    },
+    "options": [
+      { "id": "A", "label": "m0" },
+      { "id": "B", "label": "m1" },
+      { "id": "C", "label": "m2" },
+      { "id": "D", "label": "m3" }
+    ],
+    "correctOptionIds": ["B", "D"],
+    "explanation": "图中为 1 的单元格对应 AB = 01 和 AB = 11，也就是 m1 与 m3。"
+  },
+  {
+    "id": "ds-ff-001",
+    "topic": "Sequential Logic",
+    "difficulty": "easy",
+    "mode": "single",
+    "contentType": "text",
+    "prompt": "D 触发器在有效时钟沿之后，Q 的值会变成什么？",
+    "options": [
+      { "id": "A", "label": "保持原值" },
+      { "id": "B", "label": "变为 D 的当前采样值" },
+      { "id": "C", "label": "一定变为 0" },
+      { "id": "D", "label": "一定变为 1" }
+    ],
+    "correctOptionIds": ["B"],
+    "explanation": "D 触发器在有效时钟沿采样 D，并在传播延迟后将该值输出到 Q。"
+  }
+]
